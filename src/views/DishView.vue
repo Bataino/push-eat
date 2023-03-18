@@ -4,8 +4,8 @@ import PushButton from '@/components/PushButton.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper";
 import FoodCard from '@/components/FoodCard.vue';
-import Badge from "primevue/Badge"
 import InputNumber from "primevue/inputnumber"
+import Badge from "primevue/Badge"
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
