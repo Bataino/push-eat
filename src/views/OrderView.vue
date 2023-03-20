@@ -1,5 +1,5 @@
 <script >
-import PushButton from "../components/PushButton.vue";
+import PushButton from "@/components/PushButton.vue";
 export default {
 	components: { PushButton },
 	data(){
