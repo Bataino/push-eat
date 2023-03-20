@@ -17,7 +17,7 @@ export default {
       <div class="museo-900 position-relative p-3" style="p-2">
         <img src="/images/spag.png" class="w-100 p-overlay-badge" v-badge.success="'23'">
         <badge v-if="quantity" class="position-absolute p-badge-success museo-500" :class="selected ? 'bg-white text-pe-green': 'bg-pe-green'" style="right:0">
-          {{ quantity }}
+          {{ quantity }} 
         </badge>
       </div>
       <div class="fs-5 nexa-bold">
