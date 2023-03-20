@@ -1,5 +1,5 @@
 <script>
-import Badge from "primevue/Badge"
+import Badge from "primevue/badge"
 
 export default {
   name: "FoodCard",
