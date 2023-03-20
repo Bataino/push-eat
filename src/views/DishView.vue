@@ -4,7 +4,6 @@ import PushButton from '@/components/PushButton.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper";
 import FoodCard from '@/components/FoodCard.vue';
-import Badge from "primevue/Badge"
 import InputNumber from "primevue/inputnumber"
 import { getProducts } from "@/firebase/product"
 import { addorUpdateCart, deletefromCart } from "@/services/cart"
@@ -21,7 +20,6 @@ export default {
 		Swiper,
 		SwiperSlide,
 		FoodCard,
-		Badge,
 		InputNumber,
 		Dialog,
 		FoodTray
@@ -78,17 +76,17 @@ export default {
 
 <template>
 	<div class="position-relative_">
-		<img :src="'/images/curve-mobile.svg'" class="position-absolute d-md-none"
+		<img src="/images/curve-mobile.svg" class="position-absolute d-md-none"
 			style="left:0;top:0;width:100%;max-height:400px" />
-		<img :src="'/images/curve.svg'" class="position-absolute d-none d-md-inline"
+		<img src="/images/curve.svg" class="position-absolute d-none d-md-inline"
 			style="left:0;top:0;width:49%;max-width:500px" />
 		<div class="position-relative w-100 text-center d-md-none" style="padding-top:20%">
-			<img :src="'/images/spag.png'" class="w-100" style="max-width:300px" />
+			<img src="/images/spag.png" class="w-100" style="max-width:300px" />
 		</div>
 		<div class="row no-gutters _pt-4">
 			<div class="col-5 d-none d-md-flex ">
 				<div class="position-relative w-100 px-1 ">
-					<img :src="'/images/spag.png'" class="w-100" ref="foodImg" style="max-width:500px" />
+					<img src="/images/spag.png" class="w-100" ref="foodImg" style="max-width:500px" />
 				</div>
 			</div>
 			<div class="col-12 col-md-3 position-relative">
