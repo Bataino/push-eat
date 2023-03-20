@@ -1,7 +1,12 @@
 <script >
 import PushButton from "../components/PushButton.vue";
 export default {
-	components: { PushButton }
+	components: { PushButton },
+	data(){
+		return {
+			order:{}
+		}
+	}
 }
 </script>
 
@@ -22,7 +27,7 @@ export default {
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
-			<div class="w-100 h-100 p-5 p-md-3 ps-md-1 pe-md-3">
+			<form @submit.prevent="order" class="w-100 h-100 p-5 p-md-3 ps-md-1 pe-md-3">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1" @click="this.$router.go(-1)" />
 				<div class="">
 					<h2 class="museo-1000 text-pe-green mt-3" _style="font-size:35px">
@@ -32,23 +37,23 @@ export default {
 				<div class="nexa-light my-5">
 					<div class="row p-0">
 						<div class="col-12 col-md-6 mb-3 mb-md-0">
-							<input class="form-control border rounded-10 p-2" placeholder="First Name" />
+							<input required v-model="order.first_name" class="form-control border rounded-10 p-2" placeholder="First Name" />
 						</div>
 						<div class="col-12 col-md-6 my-0">
-							<input class="form-control border rounded-10 p-2 " placeholder="Last Name" />
+							<input required v-model="order.last_name" class="form-control border rounded-10 p-2 " placeholder="Last Name" />
 						</div>
 					</div>
-					<input class="form-control border rounded-10 p-2 my-3" placeholder="Email address" />
-					<input class="form-control border rounded-10 p-2 my-3" placeholder="Full addresss" />
-					<select placeholder="What is the chef preparing" class="form-control border rounded-10 p-2 my-3">
+					<input required v-model="order.email" class="form-control border rounded-10 p-2 my-3" placeholder="Email address" />
+					<input required v-model="order.address" class="form-control border rounded-10 p-2 my-3" placeholder="Full addresss" />
+					<select v-model="order.option" placeholder="What is the chef preparing" class="form-control border rounded-10 p-2 my-3">
 						<option>Water</option>
 					</select>
-					<input class="form-control border rounded-10 p-2 my-3"
+					<input required v-model="order.prepare" class="form-control border rounded-10 p-2 my-3"
 						placeholder="What will the chef prepare for you?" />
-					<input class="form-control border rounded-10 p-2 my-3" placeholder="Any special request?" />
+					<input v-model="order.special" class="form-control border rounded-10 p-2 my-3" placeholder="Any special request?" />
 				</div>
-				<push-button text="order now" />
-			</div>
+				<push-button text="order now" type="submit" />
+			</form>
 		</div>
 	</div>
 </template>
@@ -61,6 +66,6 @@ export default {
 .input {}
 
 input {
-	.input
+	.input 
 }
 </style>
