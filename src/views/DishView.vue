@@ -65,11 +65,12 @@ export default {
 	created() {
 		this.food = this.$store.state.foods[0]
 		getProducts()
+		.then((data) => console.log("products", data))
 	},
 	mounted() {
 		setTimeout(() => {
-			this.$refs.foodImg.classList.add("animate__bounce")
-		}, 3000)
+			this.$refs.foodImg.classList.add("animate__shakeX")
+		}, 5000)
 	}
 }
 </script>
@@ -86,7 +87,7 @@ export default {
 		<div class="row no-gutters _pt-4">
 			<div class="col-5 d-none d-md-flex ">
 				<div class="position-relative w-100 px-1 ">
-					<img src="/images/spag.png" class="w-100" ref="foodImg" style="max-width:500px" />
+					<img src="/images/spag.png" class="w-100 " ref="foodImg" style="max-width:500px" />
 				</div>
 			</div>
 			<div class="col-12 col-md-3 position-relative">
@@ -195,7 +196,7 @@ input:focus {
 }
 
 .p-dialog {
-	background-color: transparent !important;
+	background-color: transparent  !important;
 	border: none;
 	box-shadow: none;
 }
@@ -204,9 +205,16 @@ input:focus {
 	display: none
 }
 
-.p-dialog-content: {
+.p-dialog-content {
 	background-color: transparent !important;
 	padding: 0px !important;
 }
-
+.img-anim {
+	animation:move-img !important;
+	animation-duration: 5000;
+}
+@keyframes move-img {
+  from {width: 0px;}
+  to {width: 200px;}
+}
 </style>

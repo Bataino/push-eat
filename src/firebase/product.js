@@ -1,9 +1,7 @@
 import { db } from "@/firebase/firebase"
 
-export const getProducts = () => {
-    db.collection("products")
-    .get()
-    .then((data) => {
-        console.log(data)
-    })
+export const getProducts = async() => {
+    let products = db.collection("products")
+    let data = await products.get()
+   return data
 }

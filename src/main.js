@@ -16,8 +16,8 @@ import "primeicons/primeicons.css";
 import './themes/bootstrap/bootstrap.css'
 import './themes/bootstrap/bootstrap.min.css'
 import './themes/styles.less'
-import 'animate.css/animate.min.css'
-import './../public/magic-master/assets/scss/magic.scss'
+import 'animate.css'
+// import './../public/magic-master/assets/scss/magic.scss'
 
 const app = createApp(App)
 
