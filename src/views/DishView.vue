@@ -10,7 +10,7 @@ import { addorUpdateCart, deletefromCart } from "@/services/cart"
 import Dialog from 'primevue/dialog';
 import FoodTray from "@/components/FoodTray.vue";
 
-SwiperCore.use([Pagination, Autoplay, Navigation]);
+SwiperCore.use([Pagination, Autoplay, Navigation ]);
 
 // Import Swiper styles
 export default {
@@ -21,7 +21,7 @@ export default {
 		SwiperSlide,
 		FoodCard,
 		InputNumber,
-		Dialog,
+		Dialog, 
 		FoodTray
 	},
 	data() {
@@ -68,7 +68,7 @@ export default {
 	},
 	mounted() {
 		setTimeout(() => {
-			this.$refs.foodImg.classList.add("twisterInUp animate__bounce")
+			this.$refs.foodImg.classList.add("animate__bounce")
 		}, 3000)
 	}
 }
@@ -207,4 +207,6 @@ input:focus {
 .p-dialog-content: {
 	background-color: transparent !important;
 	padding: 0px !important;
-}</style>
+}
+
+</style>
