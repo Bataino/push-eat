@@ -69,7 +69,7 @@ export default {
 	},
 	mounted() {
 		setTimeout(() => {
-			this.$refs.foodImg.classList.add("animate__shakeX")
+			this.$refs.foodImg.classList.add("animate__shakeX") 
 		}, 5000)
 	}
 }
