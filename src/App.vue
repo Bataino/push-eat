@@ -8,11 +8,18 @@ export default {
   components: {
     Header
   },
-  created(){
-    console.log(this.$route)
+  computed: {
+    route() {
+      if (this.$route.name)
+        return this.$route.name
+      return ''
+    }
+  },
+  created() {
+    console.log("route",this.$route)
     this.$store.commit('update', {
-      name:"cart",
-      value:JSON.parse(localStorage.getItem("cart"))
+      name: "cart",
+      value: JSON.parse(localStorage.getItem("cart"))
     })
   }
 }
@@ -21,11 +28,9 @@ export default {
 
 <template>
   <div class="p-0 w-100">
-      <Header class=""  v-if="!['order'].includes(this.$route.name ?? '')"/>
+    <Header class="" v-if="!['order'].includes(route)" />
     <RouterView />
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
