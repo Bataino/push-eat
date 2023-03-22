@@ -43,6 +43,7 @@ export default {
 			deletefromCart(id)
 		},
 		cartQuantity(food) {
+			console.log(this.$store)
 			if (this.$store.state.cart[food.id])
 				return this.$store.state.cart[food.id].quantity
 			return 0

@@ -1,40 +1,40 @@
 @font-face {
     font-family: 'museo500';
-    src: url('../assets/fonts/museo/MuseoSansRounded500.otf');
+    src: url('/fonts/museo/MuseoSansRounded500.otf');
 }
 @font-face {
     font-family: 'museo700';
-    src: url('../assets/fonts/museo/MuseoSansRounded700.otf');
+    src: url('/fonts/museo/MuseoSansRounded700.otf');
 }
 @font-face {
     font-family: 'museo900';
-    src: url('../assets/fonts/museo/MuseoSansRounded900.otf');
+    src: url('/fonts/museo/MuseoSansRounded900.otf');
 }
 @font-face {
     font-family: 'museo1000';
-    src: url('../assets/fonts/museo/MuseoSansRounded1000.otf');
+    src: url('/fonts/museo/MuseoSansRounded1000.otf');
 }
 @font-face {
     font-family: 'poppins';
-    src: url('../assets/fonts/poppins/Poppins-Regular.ttf');
+    src: url('/fonts/poppins/Poppins-Regular.ttf');
 }
 @font-face {
     font-family: 'poppins light';
-    src: url('../assets/fonts/poppins/Poppins-Light.ttf');
+    src: url('/fonts/poppins/Poppins-Light.ttf');
 }
 @font-face {
     font-family: 'poppins semibold';
-    src: url('../assets/fonts/poppins/Poppins-SemiBold.ttf');
+    src: url('/fonts/poppins/Poppins-SemiBold.ttf');
 }
 @font-face {
     font-family: 'nexa';
-    src: url('../assets/fonts/nexa/NexaRegular.otf');
+    src: url('/fonts/nexa/NexaRegular.otf');
 }
 @font-face {
     font-family: 'nexa light';
-    src: url('../assets/fonts/nexa/NexaLight.otf');
+    src: url('/fonts/nexa/NexaLight.otf');
 }
 @font-face {
     font-family: 'nexa bold';
-    src: url('../assets/fonts/nexa/NexaBold.otf');
+    src: url('/fonts/nexa/NexaBold.otf');
 }
