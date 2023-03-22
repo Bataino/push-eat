@@ -16,7 +16,7 @@ export default {
     }
   },
   created() {
-    console.log("route1",this.$route)
+    console.log("route2",this.$route)
     this.$store.commit('update', {
       name: "cart",
       value: JSON.parse(localStorage.getItem("cart"))

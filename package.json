@@ -1,12 +1,11 @@
 {
   "name": "pusheat",
-  "version": "0.0.0",
+  "version": "3.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "test:unit": "vitest",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
   },
   "dependencies": {
@@ -22,7 +21,6 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.0.0",
-    "@vue/test-utils": "^2.3.1",
     "eslint": "^8.34.0",
     "eslint-plugin-vue": "^9.9.0",
     "jsdom": "^21.1.0",
@@ -30,7 +28,6 @@
     "less-loader": "^11.1.0",
     "sass": "^1.59.3",
     "sass-loader": "^13.2.0",
-    "vite": "^4.1.4",
-    "vitest": "^0.29.1"
+    "vite": "^4.1.4"
   }
 }
