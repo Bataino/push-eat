@@ -46,7 +46,7 @@ export default {
 						#3000
 					</span>
 				</div>
-				<button class="btn btn-pe-green text-white w-100 rounded-10 p-2 my-1 nexa" :disabled="!Object.entries(this.$store.state.cart)[0]" @click="this.$router.push('/order')">
+				<button class="btn btn-pe-green text-white w-100 rounded-10 p-2 my-1 nexa" :disabled="!Object.entries(this.$store.state.cart)[0]" @click="this.$router.push('/checkout')">
 					<div class="fs-6 nexa">
 						Order now
 					</div>

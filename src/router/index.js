@@ -31,7 +31,29 @@ const router = createRouter({
       path: '/order',
       name: 'order',
       component: () => import('../views/OrderView.vue')
-    }
+    },
+    {
+      path: '/order/success',
+      name: 'orderSuccess',
+      component: () => import('../views/OrderSuccessView.vue')
+    },
+    {
+      path: '/order/failure',
+      name: 'orderFailure',
+      component: () => import('../views/OrderFailureView.vue')
+    },
+    {
+      path: '/checkout',
+      name: 'checkout',
+      component: () => import('../views/CheckOutView.vue')
+    },
+    {
+      path: '/checkout/complete',
+      name: 'completeCheckout',
+      component: () => import('../views/CheckOutDetails.vue')
+    },
+    
+
   ]
 })
 

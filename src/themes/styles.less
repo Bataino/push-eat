@@ -36,6 +36,48 @@
 .p-inputtext:active {
     box-shadow: none !important;
 }
+.p-inputnumber-button {
+	background-color: transparent !important;
+	border-color: lightgray;
+	color: var(--pusheat-dark) !important;
+	border-radius: 50% !important;
+	max-width: 20px;
+	height: 20px;
+}
+
+.p-inputtext {
+	border: none;
+    text-align: center;
+	border-radius: 0 !important;
+}
+
+input:focus {
+	border-radius: 0;
+	box-shadow: 0 0 0 0 !important;
+}
+
+.p-dialog {
+	background-color: transparent  !important;
+	border: none;
+	box-shadow: none;
+}
+
+.p-dialog-header {
+	display: none
+}
+
+.p-dialog-content {
+	background-color: transparent !important;
+	padding: 0px !important;
+}
+.img-anim {
+	animation:move-img !important;
+	animation-duration: 5000;
+}
+@keyframes move-img {
+  from {width: 0px;}
+  to {width: 200px;}
+}
 
 // Self-defined Class
 .pe-point{

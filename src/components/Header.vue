@@ -12,10 +12,12 @@ defineProps({
 		<div class="" style="max-width:100px">
 			<img src="/images/logo.png" class="w-100" />
 		</div>
-		<div class="fs-4">
-			<icon icon="mingcute:dot-grid-line" class="text-pe-dark fs-2" />
-			Menu
-			
+		<div class="_d-flex align-items-center">
+			<img src="/images/icon/Vector.png" class="my-auto " style="max-width:25px" />
+			<!-- <icon icon="mingcute:dot-grid-line" class="text-pe-dark fs-2" /> -->
+			<span class="fs-4 ">
+				Menu
+			</span> 
 		</div>
 	</div>
 </template>
