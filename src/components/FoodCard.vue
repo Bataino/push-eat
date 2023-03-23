@@ -20,7 +20,7 @@ export default {
           {{ quantity }} 
         </badge>
       </div>
-      <div class="fs-5 nexa-bold">
+      <div class="fs-5 nexa-bold" :class="selected ? 'text-white': 'text-dark'">
         {{food.name}}
       </div>
     </div>

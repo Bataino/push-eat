@@ -12,10 +12,10 @@ export default {
 <template>
 	<div class="row -10 p-0 ">
 		<div class="col-12 col-md-6">
-			<div class="w-100 h-100 px-md-5">
-				<div class="p-3 -md-5 pb-0 p-md-0">
-					<h1 class="museo-1000 text-black" style="font-size:40px">
-						<span class="text-pe-green"> Order a cook</span>, the way you order for Uber, Bolt
+			<div class="w-100 h-100 ps-4 px-md-5">
+				<div class="p-3 -md-5 pb-0 p-md-0 w-75">
+					<h1 class="museo-1000 text-black head" style="">
+						<span class="text-pe-green"> Order a cook</span>, the<br class="d-md-none"> way you order for Uber, Bolt
 					</h1>
 				</div>
 				<div class="w-100 d-flex justify-content-end d-md-none">
@@ -50,11 +50,20 @@ export default {
 		// aspect-ratio: 1 !important;
 		max-height: 300px;
 	}
+	.head {
+		font-size:40px;
+	}
 }
 @media(min-width:768px) {
 	img {
 		// aspect-ratio: 1 !important;
 		width:100%;
+	}
+	.head {
+		font-size:4vw;
+	}
+	.w-75 {
+		width:100% !important
 	}
 }
 </style>

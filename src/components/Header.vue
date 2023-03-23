@@ -7,21 +7,90 @@ defineProps({
 })
 </script>
 
+<script>
+import Menu from 'primevue/menu';
+
+export default {
+	components: {
+		Menu
+	},
+	data() {
+		return {
+			items: [
+				{
+					label: 'Food menu',
+					// icon: 'pi pi-refresh',
+					to:"/dish"
+				},
+				{
+					label: 'Get a chef',
+					// icon: 'pi pi-times',
+					to:"/order"
+				},
+				{
+					label: 'Privacy policy',
+					// icon: 'pi pi-external-link',
+					to: '/terms/policy'
+				},
+				{
+					label: 'Terms and condition',
+					// icon: 'pi pi-upload',
+					to: '/terms'
+				},
+				{
+					label: 'Security agreement',
+					// icon: 'pi pi-upload',
+					to: '/terms/security'
+				}
+			]
+		}
+	},
+	methods: {
+		toggle(event) {
+			this.$refs.menu.toggle(event);
+		}
+	}
+}
+
+</script>
+
 <template>
-	<div class="d-flex justify-content-between align-items-center pt-4 pe-5 ps-5 pb-4">
-		<div class="" style="max-width:100px">
-			<img src="/images/logo.png" class="w-100" />
-		</div>
-		<div class="_d-flex align-items-center">
-			<img src="/images/icon/Vector.png" class="my-auto " style="max-width:25px" />
-			<!-- <icon icon="mingcute:dot-grid-line" class="text-pe-dark fs-2" /> -->
-			<span class="fs-4 ">
-				Menu
-			</span> 
+	<div class="py-4 py-md-5 pe-5 ps-5">
+		<div class="d-flex justify-content-between align-items-center">
+			<div class="" style="max-width:100px">
+				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')"/>
+			</div>
+			<div class="d-flex align-items-center pe-point" @click="toggle" >
+				<img src="/images/icon/Vector.png" class="" style="width:25px" />
+				<div class="fs-4 ms-1  py-1">
+					<div class="my-auto">
+						Menu
+					</div>
+				</div>
+			</div>
+			<Menu :model="items" ref="menu" class="text-end" :popup="true" />
 		</div>
 	</div>
 </template>
 
-<style scoped>
+<style scoped></style>
 
+<style lang="less">
+	.p-menuitem {
+		width:100%;
+		text-align: right !important;
+	}
+	.p-menuitem-content {
+		text-align: right !important;
+		display:flex;
+		justify-content: end;
+		font-family:'nexa' !important;
+		overflow:hidden;
+		// font-size: small;
+	}
+	.p-menu {
+		border-radius:10px !important;
+		border: 1px solid var(--pusheat-dark) !important;
+		overflow:hidden;
+	}		
 </style>

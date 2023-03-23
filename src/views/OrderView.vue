@@ -7,7 +7,7 @@ export default {
 	data() {
 		return {
 			order: {},
-			isAgreed:false
+			isAgreed: false
 		}
 	}
 }
@@ -15,17 +15,20 @@ export default {
 
 <template>
 	<div class="row -10 p-0 m-0-ps-5" style="min-height:100vh">
-		<div class="col-12 col-md-6 d-none d-md-flex">
-			<div class="w-100 h-100 p-4 bg-pe-dark">
-				<div class="px-5">
-					<img src="/images/spag-green-overlay.png" class="w-100" />
-				</div>
-				<div class="text-center text-white ">
-					<h2 class="museo-1000">Unleash Epicurean Adventures</h2>
-					<p>
-						To ensure your satisfaction, please provide us with your preferences, dietary restrictions, event
-						details, and we'll handle the rest.
-					</p>
+		<div class="col-12 col-md-5 d-none d-md-flex align-items-center">
+			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center">
+				<div class="mx-auto" style="max-width: 400px;">
+					<div class="px-5 mx-auto">
+						<img src="/images/spag-green-overlay.png" class="w-100" />
+					</div>
+					<div class="text-center text-white mx-auto">
+						<h1 class="museo-1000">Unleash<br> Epicurean <br>Adventures</h1>
+						<p class="mx-auto px-5 pt-2 nexa">
+							To ensure your satisfaction, please provide us with your preferences, dietary restrictions,
+							event
+							details, and we'll handle the rest.
+						</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -53,8 +56,7 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.address" class="form-control border rounded-10 p-2 my-3"
 						placeholder="Full addresss" />
-					<select v-model="order.option" placeholder=""
-						class="form-control border rounded-10 p-2 my-3">
+					<select v-model="order.option" placeholder="" class="form-control border rounded-10 p-2 my-3">
 						<option selected disabled="" :value="undefined">For how many hours do you need the chef</option>
 						<option>Water</option>
 					</select>

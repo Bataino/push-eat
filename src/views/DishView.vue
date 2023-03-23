@@ -10,7 +10,7 @@ import { addorUpdateCart, deletefromCart } from "@/services/cart"
 import Dialog from 'primevue/dialog';
 import FoodTray from "@/components/FoodTray.vue";
 
-SwiperCore.use([Pagination, Autoplay, Navigation ]);
+SwiperCore.use([Pagination, Autoplay, Navigation]);
 
 // Import Swiper styles
 export default {
@@ -21,7 +21,7 @@ export default {
 		SwiperSlide,
 		FoodCard,
 		InputNumber,
-		Dialog, 
+		Dialog,
 		FoodTray
 	},
 	data() {
@@ -43,15 +43,21 @@ export default {
 			deletefromCart(id)
 		},
 		cartQuantity(food) {
-			console.log(this.$store)
-			if (this.$store.state.cart[food.id])
-				return this.$store.state.cart[food.id].quantity
-			return 0
+			// console.log(food.id, food["id"])
+			if (!food) {
+				return 0
+			}
+			let qty = 0
+			let id = food.id
+			// console.log("food.id" + this.$store.state.cart)
+			if (this.$store.state.cart[id] != undefined || this.$store.state.cart[id] != null) {
+				qty = this.$store.state.cart[food.id].quantity
+			}
+			return qty
 		}
 	},
 	watch: {
 		food: {
-			immediate: true,
 			deep: true,
 			handler(food) {
 				const quantity = this.cartQuantity(food)
@@ -66,11 +72,11 @@ export default {
 	created() {
 		this.food = this.$store.state.foods[0]
 		getProducts()
-		.then((data) => console.log("products", data))
+			.then((data) => console.log("products", data))
 	},
 	mounted() {
 		setTimeout(() => {
-			this.$refs.foodImg.classList.add("animate__shakeX") 
+			this.$refs.foodImg.classList.add("animate__shakeX")
 		}, 5000)
 	}
 }
@@ -119,8 +125,8 @@ export default {
 							<div class="mt-3 text-end text-md-start">
 								<push-button type="submit" text="choose" v-if="!cartQuantity(food)"></push-button>
 								<!-- <small v-esle>
-									Added to Cart
-								</small> -->
+										Added to Cart
+									</small> -->
 							</div>
 						</form>
 					</div>
@@ -168,15 +174,18 @@ export default {
 				<icon icon="material-symbols:arrow-circle-right-outline-rounded" class="text-pe-green fs-1" />
 			</button>
 		</div>
-		<Dialog v-model:visible="foodTrayMobile" :dismissableMask="true" modal class="p-3 w-100" style="">
+		<Dialog v-model:visible="foodTrayMobile"  :dismissableMask="true" :closable="false" modal class="p-3 w-100" style="">
 			<div>
-				<food-tray trayHeight="400px" style="max-width:400px" class="w-100"></food-tray>
+				<food-tray trayHeight="200px" style="max-width:400px" class="w-100"></food-tray>
 			</div>
 		</Dialog>
 	</div>
 </template>
 
 <style>
+.p-dialog-header {
+	display:none !important;
+}
 .p-inputnumber-button {
 	background-color: transparent !important;
 	border-color: lightgray;
@@ -197,7 +206,7 @@ input:focus {
 }
 
 .p-dialog {
-	background-color: transparent  !important;
+	background-color: transparent !important;
 	border: none;
 	box-shadow: none;
 }
@@ -210,12 +219,18 @@ input:focus {
 	background-color: transparent !important;
 	padding: 0px !important;
 }
+
 .img-anim {
-	animation:move-img !important;
+	animation: move-img !important;
 	animation-duration: 5000;
 }
+
 @keyframes move-img {
-  from {width: 0px;}
-  to {width: 200px;}
-}
-</style>
+	from {
+		width: 0px;
+	}
+
+	to {
+		width: 200px;
+	}
+}</style>

@@ -19,7 +19,7 @@ export default {
     console.log("route2",this.$route)
     this.$store.commit('update', {
       name: "cart",
-      value: JSON.parse(localStorage.getItem("cart"))
+      value: JSON.parse(localStorage.getItem("cart")) ?? {}
     })
   }
 }

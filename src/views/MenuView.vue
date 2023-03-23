@@ -19,8 +19,8 @@ export default {
 		<div class="col-12 col-md-6">
 			<div class="w-100 h-100 px-3 pe-md-5">
 				<div class="">
-					<h1 class="museo-1000 text-pe-green" style="font-size:35px">
-						<span class="text-pe-dark">Tired of eating</span>
+					<h1 class="museo-1000 text-pe-green" style="font-size:40px">
+						<span class="text-pe-dark">Tired of eating</span><br>
 						Rice, beans or eba?
 					</h1>
 				</div>
