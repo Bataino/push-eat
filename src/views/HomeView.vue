@@ -1,6 +1,6 @@
 <script>
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import SwiperCore, {Autoplay, Navigation } from "swiper";
+import SwiperCore, { Autoplay, Navigation } from "swiper";
 import ChefView from './ChefView.vue';
 import MenuView from './MenuView.vue';
 SwiperCore.use([Autoplay, Navigation]);
@@ -31,8 +31,11 @@ export default {
 
 <template>
 	<div class="w-100">
-		<swiper :autoplay="true" :slidesPerView="1" :grabCursor="true" :navigation="false"
-			:space-between="0" @swiper="onSwiper" @_slideChange="onSlideChange" class="">
+		<swiper :autoplay="{
+			delay: 5000,
+		}" 
+		:slidesPerView="1" :grabCursor="true" :navigation="false" :space-between="0" @swiper="onSwiper"
+			@_slideChange="onSlideChange" class="">
 			<swiper-slide class="w-100">
 				<chef-view></chef-view>
 			</swiper-slide>
@@ -43,6 +46,4 @@ export default {
 	</div>
 </template>
 
-<style>
-
-</style>
+<style></style>

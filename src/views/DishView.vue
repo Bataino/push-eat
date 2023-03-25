@@ -85,10 +85,10 @@ export default {
 <template>
 	<div class="position-relative_">
 		<img src="/images/curve-mobile.svg" class="position-absolute d-md-none"
-			style="left:0;top:0;width:100%;max-height:400px" />
+			style="left:0;top:0;width:100%;_margin-top:10px;max-height:350px" />
 		<img src="/images/curve.svg" class="position-absolute d-none d-md-inline"
 			style="left:0;top:0;width:49%;max-width:500px" />
-		<div class="position-relative w-100 text-center d-md-none" style="padding-top:20%">
+		<div class="position-relative w-100 text-center d-md-none" style="padding-top:10%">
 			<img src="/images/spag.png" class="w-100" style="max-width:300px" />
 		</div>
 		<div class="row no-gutters _pt-4">
@@ -139,7 +139,7 @@ export default {
 			</div>
 		</div>
 		<div class="d-flex justify-content-start justify-content-md-center mb-4 my-4">
-			<div style="max-width:800px" class="w-100">
+			<div style="max-width:900px" class="w-100">
 				<swiper :breakpoints="{
 					// when window width is >= 640px
 					300: {

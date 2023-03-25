@@ -42,12 +42,14 @@ export default {
 					// icon: 'pi pi-upload',
 					to: '/terms/security'
 				}
-			]
+			],
+			menuIsOpen: false
 		}
 	},
 	methods: {
 		toggle(event) {
 			this.$refs.menu.toggle(event);
+			// this.menuIsOpen = !this.menuIsOpen
 		}
 	}
 }
@@ -55,18 +57,17 @@ export default {
 </script>
 
 <template>
-	<div class="py-4 py-md-5 pe-5 ps-5">
+	<div class="py-3 py-md-4 pe-5 ps-5" style="background-image: url('/images/head-overlay.png')">
 		<div class="d-flex justify-content-between align-items-center">
-			<div class="" style="max-width:100px">
+			<div class="py-2" style="max-width:100px">
 				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')"/>
 			</div>
-			<div class="d-flex align-items-center pe-point" @click="toggle" >
-				<img src="/images/icon/Vector.png" class="" style="width:25px" />
-				<div class="fs-4 ms-1  py-1">
-					<div class="my-auto">
+			<div class="d-flex align-items-center py-2 pe-point" @click="toggle" >
+				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" @click="toggle" class="" style="width:25px" />
+				<!-- <icon icon="humbleicons:times" class="fs-2" @click="toggle" v-else style="" /> -->
+				<span class="ms-2 nexa">
 						Menu
-					</div>
-				</div>
+				</span>
 			</div>
 			<Menu :model="items" ref="menu" class="text-end" :popup="true" />
 		</div>

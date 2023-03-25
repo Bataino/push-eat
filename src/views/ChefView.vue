@@ -22,7 +22,7 @@ export default {
 					<img src="/images/illustration1.png" class="" />
 				</div>
 				<div class="px-3 px-md-0">
-					<div class="nexa-light my-3 my-md-4">
+					<div class="nexa-light my-3 my-md-4 col-12 col-sm-10 col-md-12 col-lg-8">
 						Cooking can be a demanding task and can
 						add to the stress of your daily life. But life can
 						be easier! you can now order a professional
