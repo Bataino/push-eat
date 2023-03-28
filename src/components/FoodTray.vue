@@ -20,7 +20,7 @@ export default {
 <template>
 	<Card style="min-width:100%;border-radius: 20px;" :style="`height:${height}`" class="bg-pe-dark text-white position-relative">
 		<template #title> Food tray </template>
-		<!-- <template #subtitle> Card subtitle </template> -->
+		<!-- <template ₦subtitle> Card subtitle </template> -->
 		<template #content>
 			<div class="" :style="`min-height:${ trayHeight ?? '100px'}`">
 				<div class="d-flex justify-content-between mb-3 align-items-center"
@@ -31,7 +31,7 @@ export default {
 						{{ cartFood.name }}
 					</div>
 					<span class="nexa-bold text-pe-green">
-						#{{ Number(cartFood.price) * Number(cartFood.quantity) }}
+						₦{{ Number(cartFood.price) * Number(cartFood.quantity) }}
 					</span>
 				</div>
 			</div>
@@ -43,7 +43,7 @@ export default {
 						Total
 					</span>
 					<span class="fw-bold text-pe-green nexa">
-						#3000
+						&#x20A6;{{ this.$store.getters.cartSum }}
 					</span>
 				</div>
 				<button class="btn btn-pe-green text-white w-100 rounded-10 p-2 my-1 nexa" :disabled="!Object.entries(this.$store.state.cart)[0]" @click="this.$router.push('/checkout')">

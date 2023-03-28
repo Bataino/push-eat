@@ -24,7 +24,7 @@ export default {
 						Rice, beans or eba?
 					</h1>
 				</div>
-				<div class="nexa-light my-4 my-md-5 col-12 col-sm-10 col-md-12 col-lg-8">
+				<div class="nexa-light my-4 my-md-5 col-12 col-sm-10 col-md-12 col-lg-8 fs-5">
 					Are you tired of eating the same meals every day? Rice, Beans, and Eba are becoming boring and unappetizing? It's time to mix things up and try something new!
 				</div>
 				<push-button text="Try our menu" @click="this.$router.push('/dish')"></push-button>

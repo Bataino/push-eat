@@ -25,7 +25,7 @@ export default {
       </div>
     </div>
     <div class="text-pe-green nexa-bold pt-2 fs-5" data-test="price">
-      #{{ food.price }}
+      ₦{{ food.price }}
     </div>
   </div>
 </template>

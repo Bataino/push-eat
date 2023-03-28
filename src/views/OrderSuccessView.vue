@@ -14,14 +14,14 @@
                 <br>
                 <div class="fs-5 text-rt-blue pt-3 nuinto-s-bold">
                     <h4 class="museo-500 fw-bold">
-                        Order dohne successful
+                        Order done successful
                     </h4>
                     <small>
                         Yay! cook has been successfully booked. An email will be sent shortly
                     </small>
                 </div>
 
-                <div class="btn btn-pe-green p-3 rounded-10 w-100 mt-5 mb-3" @click="this.$router.push('')">
+                <div class="btn btn-pe-green p-3 rounded-10 w-100 mt-5 mb-3" @click="this.$router.push('/')">
                     <span class="fs-6 nexa-bold">
                         Go Back Home
                     </span>

@@ -1,27 +1,73 @@
 <script>
 import Card from "primevue/card"
 import Checkbox from "primevue/checkbox"
+import { createOrder } from "@/services/order"
+import Widget from "@/functions/widget"
 
 export default {
 	name: "CheckOut",
-	props: [""],
+	props: ["value"],
 	components: {
 		Checkbox,
 		Card
 	},
 	data() {
 		return {
-			isAgreed: true
+			isAgreed: true,
+			order: {}
+		}
+	},
+	computed: {
+		isNotCompleted() {
+			if (Object.keys(this.order) < 5)
+				return true
+			return false
 		}
 	},
 	methods: {
+		createOrder() {
+			Widget.openLoading()
+
+			const cart = this.$store.state.cart
+			let products = Object.entries(cart).map((e) => {
+				return {
+					product: e[1].id,
+					quantity: e[1].quantity
+				}
+			})
+
+			this.order.phone_number = this.order.phone_number.toString()
+			createOrder({
+				...this.order,
+				products
+			})
+				.then((data) => {
+					Widget.dismiss()
+					if (data.data.success) {
+						localStorage.setItem("user", JSON.stringify(this.order))
+						this.$router.push("/order/success")
+					}
+				})
+		}
+	},
+	watch: {
+		order: {
+			deep: true,
+			handler(order) {
+				this.$emit('input', order)
+			}
+		}
+	},
+	created() {
+		if (localStorage.getItem("user"))
+			this.order = JSON.parse(localStorage.getItem("user")) ?? {}
 	}
 
 }
 </script>
 
 <template>
-	<div>
+	<form @submit.prevent="createOrder">
 		<Card style="min-width:100%;border-radius: 20px;" :style="`height:${height}`"
 			class="bg-pe-dark text-white position-relative">
 			<template #title>
@@ -33,42 +79,66 @@ export default {
 			<template #content>
 				<div class="px-2 text-gray" :style="`min-height:${trayHeight ?? '200px'}`">
 					<div class="">
-						<label for="full_name" class="text-sm">
-							Full name
-						</label>
-						<input type="text" id="full_name" class="px-2 border-0 border-bottom form-control">
+						<span for="email" class="text-sm">
+							Email
+						</span>
+						<input type="email" v-model="order.email" id="email" required
+							class="px-2 border-0 border-bottom form-control">
 					</div>
 					<div class="">
-						<label for="phone">
+						<span for="first_name" class="text-sm">
+							First name
+						</span>
+						<input type="text" v-model="order.first_name" id="first_name" required
+							class="px-2 border-0 border-bottom form-control">
+					</div>
+					<div class="">
+						<span for="last_name" class="text-sm">
+							Last name
+						</span>
+						<input type="text" v-model="order.last_name" id="last_name" required
+							class="px-2 border-0 border-bottom form-control">
+					</div>
+					<div class="">
+						<span for="phone">
 							Phone Number
-						</label>
-						<input type="text" id="phone" class="px-2 border-0 border-bottom form-control">
+						</span>
+						<input type="tel" maxlength="11" minlength="11" inputmode="Numeric" v-model="order.phone_number"
+							id="phone" required class="px-2 border-0 border-bottom form-control">
 					</div>
 					<div class="">
-						<label for="full_address">
+						<span for="full_address">
 							Full Address
-						</label>
-						<input type="text" id="full_address" class="px-2 border-0 border-bottom form-control">
+						</span>
+						<input type="text" v-model="order.full_address" id="full_address" required
+							class="px-2 border-0 border-bottom form-control">
 					</div>
 					<div class="d-flex align-items-start field-checkbox">
-						<Checkbox inputId="ingredient1" v-model="isAgreed" :binary="true" name="pizza" />
-						<label for="ingredient1" class="ms-2"> I agree to the
+						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
+						<span for="ingredient1" class="ms-2"> I agree to the
 							security agreement, terms and conditions.
-						</label>
+						</span>
 					</div>
 				</div>
 			</template>
 
 		</Card>
 		<div class="py-3 text-center px-4 px-md-0">
-			<button class="btn btn-pe-green w-100 rounded-10 p-2 my-1 nexa"
-				:disabled="!Object.entries(this.$store.state.cart)[0]" @click="this.$router.push('/checkout/success')">
+			<button class="btn btn-pe-green d-none d-md-block w-100 rounded-10 p-2 my-1 nexa"
+				:disabled="!Object.entries(this.$store.state.cart)[0] || isNotCompleted" type="submit">
+				<span class="fs-6 nexa">
+					Order now
+				</span>
+			</button>
+
+			<button class="btn btn-pe-green d-md-none w-100 rounded-10 p-2 my-1 nexa"
+				:disabled="!Object.entries(this.$store.state.cart)[0] && isNotComplete" type="submit">
 				<div class="fs-6 nexa">
 					Order now
 				</div>
 			</button>
 		</div>
-	</div>
+	</form>
 </template>
 
 <style scoped lang="less">
@@ -91,13 +161,13 @@ input::after {
 	background: transparent !important;
 	border-radius: 0px;
 	border-color: gray !important;
-	margin-top: 0px;
-	margin-bottom: 20px;
+	margin-top: px;
+	margin-bottom: 10px;
 	color: gray;
 	font-size: 12px;
 }
 
-label {
+span {
 	.text-sm !important;
 	font-size: 12px
 }
@@ -114,4 +184,5 @@ p-checkbox-icon {
 	background-color: transparent !important;
 }
 
-.text-sm {}</style> 
+.text-sm {}
+</style> 

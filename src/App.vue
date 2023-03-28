@@ -27,10 +27,16 @@ export default {
 </script>
 
 <template>
-  <div class="p-0 w-100">
+  <div class="p-0 w-100 app" style="">
     <Header class="" v-if="!['order'].includes(route)" />
     <RouterView />
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.app {
+  background-image: url('/images/head-overlay.png');
+  background-size:cover !important;
+  min-height:100vh
+}
+</style>

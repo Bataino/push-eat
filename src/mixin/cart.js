@@ -1,6 +1,6 @@
 import PushButton from '@/components/PushButton.vue'
 import InputNumber from "primevue/inputnumber"
-import { addorUpdateCart, deletefromCart } from "@/services/cart"
+import { addorUpdateCart, deletefromCart, replaceCart } from "@/services/cart"
 
 export default {
     components: {
@@ -13,7 +13,7 @@ export default {
     },
     methods: {
         addOrUpdateCart(food) {
-            addorUpdateCart()
+            addorUpdateCart(food)
         },
         deletefromCart(id) {
             deletefromCart(id)
@@ -23,6 +23,9 @@ export default {
             if (this.$store.state.cart[food.id])
                 return this.$store.state.cart[food.id].quantity
             return 0
+        },
+        replaceCart(cart){
+            replaceCart(cart)
         }
     },
 }

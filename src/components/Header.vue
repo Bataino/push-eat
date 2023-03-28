@@ -57,7 +57,8 @@ export default {
 </script>
 
 <template>
-	<div class="py-3 py-md-4 pe-5 ps-5" style="background-image: url('/images/head-overlay.png')">
+	<div class="py-3 py-md-4 pe-5 ps-5 _fixed-top" > 
+		<!-- <ProgressBar mode="indeterminate" style="height: .5em" /> -->
 		<div class="d-flex justify-content-between align-items-center">
 			<div class="py-2" style="max-width:100px">
 				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')"/>

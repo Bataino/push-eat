@@ -25,3 +25,11 @@ export const deletefromCart = (id) => {
     })
     localStorage.setItem("cart", JSON.stringify(newArray))
 }
+
+export const replaceCart = (cart) => {
+    store.commit('update', {
+        name:"cart",
+        value:cart
+    })
+    localStorage.setItem("cart", JSON.stringify(cart))
+}

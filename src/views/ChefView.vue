@@ -13,16 +13,16 @@ export default {
 	<div class="row -10 p-0 ">
 		<div class="col-12 col-md-6">
 			<div class="w-100 h-100 ps-4 px-md-5">
-				<div class="p-3 -md-5 pb-0 p-md-0 w-75">
-					<h1 class="museo-1000 text-black head" style="">
-						<span class="text-pe-green"> Order a cook</span>, the<br class="d-md-none"> way you order for Uber, Bolt
+				<div class="p-3 pe-0 pb-0 p-md-0 w-pe-75">
+					<h1 class="museo-1000 text-black head w-100" style="">
+						<span class="text-pe-green"> Order a cook</span>, the<br class="d-none d-sm-block d-md-none"> way you order for Uber, Bolt
 					</h1>
 				</div>
 				<div class="w-100 d-flex justify-content-end d-md-none">
 					<img src="/images/illustration1.png" class="" />
 				</div>
 				<div class="px-3 px-md-0">
-					<div class="nexa-light my-3 my-md-4 col-12 col-sm-10 col-md-12 col-lg-8">
+					<div class="nexa-light my-3 my-md-4 col-12 col-sm-10 col-md-12 col-lg-8 fs-5">
 						Cooking can be a demanding task and can
 						add to the stress of your daily life. But life can
 						be easier! you can now order a professional
@@ -53,6 +53,9 @@ export default {
 	.head {
 		font-size:40px;
 	}
+	.w-pe-75 {
+		width:75%;
+	}
 }
 @media(min-width:768px) {
 	img {
@@ -62,8 +65,13 @@ export default {
 	.head {
 		font-size:4vw;
 	}
-	.w-75 {
-		width:100% !important
+	.w-pe-75 {
+		width:100% !important;
 	}
 }
+// @media(max-width:468px) {
+// 	h1 {
+// 		font-size: 3vw
+// 	}
+// }
 </style>
