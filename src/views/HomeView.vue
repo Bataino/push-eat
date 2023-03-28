@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/vue';
 import SwiperCore, { Autoplay, Navigation } from "swiper";
 import ChefView from './ChefView.vue';
 import MenuView from './MenuView.vue';
+import RequestView from './RequestView.vue';
 SwiperCore.use([Autoplay, Navigation]);
 
 // Import Swiper styles
@@ -12,6 +13,7 @@ export default {
 		SwiperSlide,
 		ChefView,
 		MenuView,
+		RequestView
 	},
 	data() {
 		return {
@@ -41,6 +43,9 @@ export default {
 			</swiper-slide>
 			<swiper-slide>
 				<menu-view></menu-view>
+			</swiper-slide>
+			<swiper-slide>
+				<request-view></request-view>
 			</swiper-slide>
 		</swiper>
 	</div>

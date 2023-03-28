@@ -7,6 +7,7 @@ import store from '@/store'
 import primevue from "primevue/config"
 // import Toaster from "@meforma/vue-toaster"
 import vueloading from 'vue-loading-overlay'
+import ToastService from 'primevue/toastservice';
 
 // import './assets/main.css'
 import 'swiper/css';
@@ -29,6 +30,7 @@ app
 .use(router)
 .use(store)
 .use(primevue)
+.use(ToastService)
 .use(vueloading)
 .component("icon", Icon)
 .directive('badge', BadgeDirective);

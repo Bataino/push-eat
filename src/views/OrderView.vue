@@ -1,14 +1,40 @@
 <script >
 import PushButton from "@/components/PushButton.vue";
 import Checkbox from 'primevue/checkbox';
+import Widget from "../functions/widget";
+import Dropdown from 'primevue/dropdown';
+import { createOrder } from "@/services/order"
+
 
 export default {
-	components: { PushButton, Checkbox },
+	components: { PushButton, Checkbox, Dropdown },
 	data() {
 		return {
-			order: {},
+			order: {
+				type: "chef",
+			},
 			isAgreed: false
 		}
+	},
+	methods: {
+		createOrder() {
+			Widget.openLoading()
+			createOrder(this.order)
+				.then((res) => {
+					Widget.dismiss()
+					if (res.data.success) {
+						this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Order submitted', life: 3000 });
+						this.$router.push('/order/success')
+						return;
+					}
+					this.$toast.add({ severity: 'danger', summary: 'Error', detail: 'unknown error occured', life: 3000 });
+
+				})
+		}
+	},
+	created() {
+		this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+
 	}
 }
 </script>
@@ -33,7 +59,7 @@ export default {
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
-			<form @submit.prevent="order" class="w-100 h-100 p-5 p-md-3 ps-md-1 pe-md-3">
+			<form @submit.prevent="createOrder" class="w-100 h-100 p-3 ps-md-1 pe-md-3">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1"
 					@click="this.$router.go(-1)" />
 				<div class="">
@@ -52,25 +78,27 @@ export default {
 								placeholder="Last Name" />
 						</div>
 					</div>
-					<input required v-model="order.email" class="form-control border rounded-10 p-2 my-3"
+					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-2 my-3"
 						placeholder="Email address" />
-					<input required v-model="order.address" class="form-control border rounded-10 p-2 my-3"
+					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
+						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
+					<input required v-model="order.full_address" class="form-control border rounded-10 p-2 my-3"
 						placeholder="Full addresss" />
-					<select v-model="order.option" placeholder="" class="form-control border rounded-10 p-2 my-3">
-						<option selected disabled="" :value="undefined">For how many hours do you need the chef</option>
-						<option>Water</option>
-					</select>
-					<input required v-model="order.prepare" class="form-control border rounded-10 p-2 my-3"
+					<Dropdown v-model="order.duration" :options="[1, 2, 3, 5, 6]"
+						placeholder="For how many hours do you need the chef" min="1"
+						class="form-control text-start m-0 p-0 border rounded-10 nexa">
+					</Dropdown>
+					<input required v-model="order.meal_to_prepare" class="form-control border rounded-10 p-2 my-3"
 						placeholder="What will the chef prepare for you?" />
-					<input v-model="order.special" class="form-control border rounded-10 p-2 my-3"
+					<input v-model="order.note" class="form-control border rounded-10 p-2 my-3"
 						placeholder="Any special request?" />
 					<div class="d-flex align-items-start">
-						<Checkbox inputId="ingredient1" name="pizza" v-model="isAgreed" :binary="true" />
-						<label for="ingredient1" class="ms-2"> I agree to the
+						<Checkbox inputId="ingredient1" name="pizza" required v-model="isAgreed" :binary="true" />
+						<small for="ingredient1" class="ms-2"> I agree to the
 							<span class="text-pe-green">
 								security agreement, terms and conditions.
 							</span>
-						</label>
+						</small>
 					</div>
 				</div>
 				<push-button text="order now" type="submit" />
@@ -84,6 +112,11 @@ export default {
 </style>
 
 <style lang="less">
+.p-dropdown-label {
+	text-align: start;
+	font-family: 'nexa light';
+}
+
 .input {}
 
 input {

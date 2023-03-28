@@ -98,28 +98,28 @@ export default {
 			<img src="/images/spag.png" class="w-100" style="max-width:200px" />
 		</div>
 		<div class="row no-gutters _pt-4">
-			<div class="col-5 d-none d-md-flex ">
+			<div class="col-5 col-lg-4 d-none d-md-flex ">
 				<div class="position-relative w-100 px-1 ">
-					<img src="/images/spag.png" class="w-100 " ref="foodImg" style="max-width:350px" />
+					<img src="/images/spag.png" class="w-100 ms-3" ref="foodImg" style="max-width:450px" />
 				</div>
 			</div>
-			<div class="col-12 col-md-3 position-relative">
+			<div class="col-12 col-md-3 col-lg-4 position-relative">
 				<div class="ps-4 pe-4 pe-md-0 ps-md-1 p-lg-0 row">
 					<div class="col-6 col-md-12">
-						<h2 class="fw-bold pt-4">
-							<b class="fw-bold nexa">
-								{{ food.name }}
-							</b>
+						<h2 class="fw-bold pt-5">
+							<span class="fw-bold food-text" v-for="(e,i) in food.name.split(' ')" :key="e" :class="i == 0 ? 'nexa-light' :'nexa'">
+								{{ e }}<br>
+							</span>
 						</h2>
 					</div>
 					<div class="col-6 col-md-12">
 						<form @submit.prevent="addOrUpdateCart">
 							<div
-								class="mt-md-2 d-flex w-100 align-items-center justify-content-end justify-content-md-start">
+								class="mt-md-2 d-flex w-100 align-items-end justify-content-end justify-content-md-start">
 								<b class="text-pe-green fs-4 nexa-bold me-2">
 									&#x20A6;{{ food.price }}
 								</b>
-								<div class="border mt-md-2 rounded-10 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
+								<div class="border mt-md-2 ms-3 rounded-10 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
 									style="min-width:100px;max-width:150px">
 									<input-number v-model="quantity" :min="1" inputId="horizontal-buttons" showButtons
 										buttonLayout="horizontal" :step="1" decrementButtonclass="" incrementButtonclass=""
@@ -207,6 +207,15 @@ export default {
 	}
 
 	/* z-index:-0.99999999 !important; */
+}
+.food-text {
+	font-size:36px;
+	@media(max-width:768px){
+		font-size:28px;
+	}
+	@media(min-width:966px){
+		font-size:42px;
+	}
 }
 
 .p-dialog-header {
