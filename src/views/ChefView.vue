@@ -28,7 +28,7 @@ export default {
 						be easier! you can now order a professional
 						chef to your home for as low as
 						<span class="text-pe-green">
-							&#x20A6;3,000
+							₦3,000
 						</span>
 					</div>
 					<push-button @click="this.$router.push('/order')" text="order now" />

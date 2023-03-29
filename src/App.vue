@@ -31,16 +31,21 @@ export default {
     <div class="position-relative" style="z-index:99999">
       <Header class="" v-if="!['order', 'request'].includes(route)" />
     </div>
-    <RouterView />
-    <div class="w-100 app _position-absolute fixed-top" style="z-index:0"></div>
+    <RouterView  />
+    <div class="w-100 app _position-absolute fixed-top" style="z-index:-1"></div>
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="less">
 .app {
   background-image: url('/images/head-overlay.png');
-  background-size: 100% 100vh !important;
+  background-size: cover !important;
   background-repeat: no-repeat !important;
-  min-height: 100vh
+  min-height: 100vh;
+
+  @media(max-width:768px) {
+    // background-image: url('/images/head-overlay-mobile.png');
+
+  }
 }
 </style>

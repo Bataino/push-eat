@@ -63,13 +63,13 @@ export default {
 			<button class="py-2 _bg-danger border-0 bg-transparent" style="max-width:100px" @click="this.$router.push('/')">
 				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')">
 			</button>
-			<div class="d-flex align-items-center py-2 pe-point" @click="toggle">
-				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" @click="toggle" class="" style="width:25px" />
+			<button class="border-0 bg-transparent d-flex align-items-center py-2 pe-point" @click="toggle">
+				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" class="" style="width:25px" />
 				<!-- <icon icon="humbleicons:times" class="fs-2" @click="toggle" v-else style="" /> -->
 				<span class="ms-2 nexa">
 					Menu
 				</span>
-			</div>
+			</button>
 			<Menu :model="items" ref="menu" class="text-end" :popup="true" />
 		</div>
 	</div>

@@ -36,7 +36,7 @@ export default {
             <div class="col-12 col-md-3 position-relative">
                 <div class="ps-4 mt-4 mt-md-3 pe-4 pe-md-0 ps-md-1 p-lg-0 row">
                     <div class="col-6 col-md-12">
-                        <skeleton borderRadius="16px" class="fw-bold pt-4">
+                        <skeleton class="fw-bold pt-4 rounded-5">
                         </skeleton>
                 </div>
                 <div class="col-6 col-md-12">
@@ -46,12 +46,12 @@ export default {
                                 <skeleton class="text-pe-green fs-4 nexa-bold me-2">
                                 </skeleton>
                                 <skeleton
-                                    class="border mt-md-2 rounded-10 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
-                                    style="min-width:100px;max-width:150px;min-height:20px">
+                                    class="mt-md-2 rounded-5 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
+                                    style="min-width:100px;max-width:150px;">
                                 </skeleton>
                             </div>
-                            <div class="mt-3 text-end text-md-start">
-                                <skeleton borderRadius="25px" style="min-height:50px"></skeleton>
+                            <div class="mt-2 mb-2 text-end text-md-start">
+                                <skeleton class="rounded-10" style="min-height:30px"></skeleton>
                                 <!-- <small v-esle>
         											Added to Cart
         										</small> -->
