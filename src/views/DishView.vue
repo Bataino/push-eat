@@ -10,6 +10,7 @@ import { addorUpdateCart, deletefromCart } from "@/services/cart"
 import Dialog from 'primevue/dialog';
 import FoodTray from "@/components/FoodTray.vue";
 import DishSkeleton from "@/components/skeleton/DishView.vue";
+import RequestButton  from "@/components/RequestButton.vue";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
@@ -24,7 +25,8 @@ export default {
 		InputNumber,
 		Dialog,
 		FoodTray,
-		DishSkeleton
+		DishSkeleton,
+		RequestButton
 	},
 	data() {
 		return {
@@ -141,6 +143,7 @@ export default {
 			<div class="d-none d-md-flex col-md-4">
 				<div class="p-1 pe-md-3 w-100">
 					<food-tray></food-tray>
+					<request-button class="mt-3 max-300"></request-button>
 				</div>
 			</div>
 		</div>
@@ -179,6 +182,7 @@ export default {
 				</span>
 				<icon icon="material-symbols:arrow-circle-right-outline-rounded" class="text-pe-green fs-1" />
 			</button>
+			<request-button class="mt-3"></request-button>
 		</div>
 		<Dialog v-model:visible="foodTrayMobile" :dismissableMask="true" :closable="false" modal class="p-3 w-100" style="">
 			<div>

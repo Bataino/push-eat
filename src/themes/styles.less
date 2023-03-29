@@ -51,11 +51,6 @@
 	border-radius: 0 !important;
 }
 
-input:focus {
-	border-radius: 0;
-	box-shadow: 0 0 0 0 !important;
-}
-
 .p-dialog {
 	background-color: transparent  !important;
 	border: none;
@@ -238,5 +233,10 @@ input, .p-inputtext {
     font-size: small !important;
 }
 
+input:focus, textarea:focus {
+	border-radius: 0;
+	box-shadow: 0 0 0  green !important;
+    border-color: var(--pusheat-green) !important;
+}
 // Pseudo classes
 .shadow{} .pt-5{}

@@ -11,12 +11,12 @@ export default {
 <template>
 	<div class="d-flex justify-content-center w-100">
 		<div class="row w-100">
-			<div class="col-12 col-md-6">
+			<div class="col-12 col-md-5">
 				<div class="w-100 ps-4 pe-3 py-1 py-md-0 text-center mx-auto d-flex justify-content-center">
-					<img src="/images/request.png" class="" style="width:100%" />
+					<img src="/images/request.png" class="" style="width:100%;" />
 				</div>
 			</div>
-			<div class="col-12 col-md-6">
+			<div class="col-12 col-md-7">
 				<div class="w-100 h-100 px-3 pe-md-5">
 					<div class="">
 						<h1 class="museo-1000 text-pe-green" style="font-size:40px">

@@ -33,6 +33,11 @@ const router = createRouter({
       component: () => import('../views/OrderView.vue')
     },
     {
+      path: '/request',
+      name: 'request',
+      component: () => import('../views/OrderRequestView.vue')
+    },
+    {
       path: '/order/success',
       name: 'orderSuccess',
       component: () => import('../views/OrderSuccessView.vue')
@@ -51,6 +56,21 @@ const router = createRouter({
       path: '/checkout/complete',
       name: 'completeCheckout',
       component: () => import('../views/CheckOutDetails.vue')
+    },
+    {
+      path: '/terms/service',
+      name: 'serviceAgreement',
+      component: () => import('../views/policy/ServiceAgreement.vue')
+    },
+    {
+      path: '/terms/policy',
+      name: 'privacyPolicy',
+      component: () => import('../views/policy/PrivacyPolicy.vue')
+    },
+    {
+      path: '/terms/refund',
+      name: 'refundPolicy',
+      component: () => import('../views/policy/RefundPolicy.vue')
     },
     
 

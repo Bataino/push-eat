@@ -18,7 +18,7 @@ export default {
 </script>
 
 <template>
-	<Card style="min-width:100%;border-radius: 20px;" :style="`height:${height}`" class="bg-pe-dark text-white position-relative">
+	<Card style="width:100%;max-width:300px;border-radius: 20px;" :style="`height:${height}`" class="bg-pe-dark text-white position-relative">
 		<template #title> Food tray </template>
 		<!-- <template ₦subtitle> Card subtitle </template> -->
 		<template #content>

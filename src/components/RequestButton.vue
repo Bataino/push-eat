@@ -1,16 +1,9 @@
 <template>
-  <div class="item">
-    <i>
-      <slot name="icon"></slot>
-    </i>
-    <div class="details">
-      <h3>
-        <slot name="heading"></slot>
-      </h3>
-      <slot></slot>
-    </div>
+  <div class="btn btn-pe-green rounded-5 w-100 p-2 nexa-light bg-pe-green" @click="this.$router.push('/request')">
+    Can’t find what you want? click here
   </div>
 </template>
+
 
 <style scoped>
 .item {

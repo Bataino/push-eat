@@ -19,28 +19,28 @@ export default {
 			items: [
 				{
 					label: 'Food menu',
-					// icon: 'pi pi-refresh',
-					to:"/dish"
+					to: "/dish"
 				},
 				{
 					label: 'Get a chef',
-					// icon: 'pi pi-times',
-					to:"/order"
+					to: "/order"
+				},
+				{
+					label: 'Special Request',
+					to: "/request"
 				},
 				{
 					label: 'Privacy policy',
-					// icon: 'pi pi-external-link',
 					to: '/terms/policy'
 				},
 				{
 					label: 'Terms and condition',
-					// icon: 'pi pi-upload',
-					to: '/terms'
+					to: '/terms/refund'
 				},
 				{
 					label: 'Security agreement',
 					// icon: 'pi pi-upload',
-					to: '/terms/security'
+					to: '/terms/service'
 				}
 			],
 			menuIsOpen: false
@@ -57,17 +57,17 @@ export default {
 </script>
 
 <template>
-	<div class="py-3 py-md-4 pe-5 ps-5 _fixed-top" > 
+	<div class="py-3 py-md-4 pe-5 ps-5 _position-absolute w-100">
 		<!-- <ProgressBar mode="indeterminate" style="height: .5em" /> -->
 		<div class="d-flex justify-content-between align-items-center">
-			<div class="py-2" style="max-width:100px">
-				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')"/>
-			</div>
-			<div class="d-flex align-items-center py-2 pe-point" @click="toggle" >
+			<button class="py-2 _bg-danger border-0 bg-transparent" style="max-width:100px" @click="this.$router.push('/')">
+				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')">
+			</button>
+			<div class="d-flex align-items-center py-2 pe-point" @click="toggle">
 				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" @click="toggle" class="" style="width:25px" />
 				<!-- <icon icon="humbleicons:times" class="fs-2" @click="toggle" v-else style="" /> -->
 				<span class="ms-2 nexa">
-						Menu
+					Menu
 				</span>
 			</div>
 			<Menu :model="items" ref="menu" class="text-end" :popup="true" />
@@ -78,21 +78,23 @@ export default {
 <style scoped></style>
 
 <style lang="less">
-	.p-menuitem {
-		width:100%;
-		text-align: right !important;
-	}
-	.p-menuitem-content {
-		text-align: right !important;
-		display:flex;
-		justify-content: end;
-		font-family:'nexa' !important;
-		overflow:hidden;
-		// font-size: small;
-	}
-	.p-menu {
-		border-radius:10px !important;
-		border: 1px solid var(--pusheat-dark) !important;
-		overflow:hidden;
-	}		
+.p-menuitem {
+	width: 100%;
+	text-align: right !important;
+}
+
+.p-menuitem-content {
+	text-align: right !important;
+	display: flex;
+	justify-content: end;
+	font-family: 'nexa' !important;
+	overflow: hidden;
+	// font-size: small;
+}
+
+.p-menu {
+	border-radius: 10px !important;
+	border: 1px solid var(--pusheat-dark) !important;
+	overflow: hidden;
+}
 </style>
