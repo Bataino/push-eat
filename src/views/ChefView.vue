@@ -24,7 +24,7 @@ export default {
 					<img src="/images/illustration1.png" class="" />
 				</div>
 				<div class="ps-2 py-3 px-md-0">
-					<div class="nexa-light my-3 my-md-4 col-12 col-sm-10 col-md-12 col-lg-8 ">
+					<div class="nexa-light my-3 my-md-4 col-12 col-lg-10">
 					<div class="fs-md-5">
 						Cooking can be a demanding task and can
 						add to the stress of your daily life. But life can
