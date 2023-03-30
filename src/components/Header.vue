@@ -57,16 +57,16 @@ export default {
 </script>
 
 <template>
-	<div class="py-3 py-md-4 pe-5 ps-5 _position-absolute w-100">
+	<div class="py-3 py-md-4 px-3 px-md-5 _position-absolute w-100">
 		<!-- <ProgressBar mode="indeterminate" style="height: .5em" /> -->
 		<div class="d-flex justify-content-between align-items-center">
-			<button class="py-2 _bg-danger border-0 bg-transparent" style="max-width:100px" @click="this.$router.push('/')">
+			<button class="py-2 _bg-danger border-0 bg-transparent" style="max-width:130px" @click="this.$router.push('/')">
 				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')">
 			</button>
 			<button class="border-0 bg-transparent d-flex align-items-center py-2 pe-point" @click="toggle">
 				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" class="" style="width:25px" />
 				<!-- <icon icon="humbleicons:times" class="fs-2" @click="toggle" v-else style="" /> -->
-				<span class="ms-2 nexa">
+				<span class="ms-2 fs-5 nexa">
 					Menu
 				</span>
 			</button>

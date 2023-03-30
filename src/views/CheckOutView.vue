@@ -67,8 +67,8 @@ export default {
 							</td>
 							<td>
 								<div class="text-center border px-2 rounded-10" style="max-width: 100px;">
-									<input-number v-model="cartFood.quantity" :min="1" inputId="horizontal-buttons"
-										showButtons buttonLayout="horizontal" @change="console.log('Ohh Oh')" :step="1" decrementButtonclass=""
+									<input-number v-model="cartFood.quantity" :min="cartFood.min_order" inputId="horizontal-buttons"
+										showButtons buttonLayout="horizontal" @change="console.log('Ohh Oh')" :step="cartFood.min_order" decrementButtonclass=""
 										incrementButtonclass="" class="d-flex align-items-center text-center"
 										incrementButtonIcon="pi pi-plus" decrementButtonIcon="pi pi-minus" />{{ }}
 								</div>

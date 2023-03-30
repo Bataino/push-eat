@@ -45,7 +45,6 @@ export default {
 
   @media(max-width:768px) {
     // background-image: url('/images/head-overlay-mobile.png');
-
   }
 }
 </style>

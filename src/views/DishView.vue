@@ -10,7 +10,7 @@ import { addorUpdateCart, deletefromCart } from "@/services/cart"
 import Dialog from 'primevue/dialog';
 import FoodTray from "@/components/FoodTray.vue";
 import DishSkeleton from "@/components/skeleton/DishView.vue";
-import RequestButton  from "@/components/RequestButton.vue";
+import RequestButton from "@/components/RequestButton.vue";
 
 SwiperCore.use([Pagination, Autoplay, Navigation]);
 
@@ -76,9 +76,9 @@ export default {
 	async created() {
 		// this.food = this.$store.state.products[0] ?? {}
 		await getProducts()
-		.then((data) => {
-			this.food = this.$store.state.products[0] ?? {}
-		})
+			.then((data) => {
+				this.food = this.$store.state.products[0] ?? {}
+			})
 	},
 	mounted() {
 		setTimeout(() => {
@@ -108,33 +108,35 @@ export default {
 			<div class="col-12 col-md-3 col-lg-4 position-relative">
 				<div class="ps-4 pe-4 pe-md-0 ps-md-1 p-lg-0 row">
 					<div class="col-6 col-md-12">
-						<h2 class="fw-bold pt-5">
-							<span class="fw-bold food-text" v-for="(e,i) in food.name.split(' ')" :key="e" :class="i == 0 ? 'nexa-light' :'nexa'">
+						<h2 class="fw-bold pt-0 pt-md-5">
+							<span class="fw-bold food-text" v-for="(e, i) in food.name.split(' ')" :key="e"
+								:class="i == 0 ? 'nexa-light' : 'nexa'">
 								{{ e }}<br>
 							</span>
 						</h2>
 					</div>
 					<div class="col-6 col-md-12">
 						<form @submit.prevent="addOrUpdateCart">
-							<div
-								class="mt-md-2 d-flex w-100 align-items-end justify-content-end justify-content-md-start">
+							<div class="mt-md-2 d-flex w-100 align-items-end justify-content-end justify-content-md-start">
 								<b class="text-pe-green fs-4 nexa-bold me-2">
 									&#x20A6;{{ food.price }}
 								</b>
 								<div class="border mt-md-2 ms-3 rounded-10 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
 									style="min-width:100px;max-width:150px">
-									<input-number v-model="quantity" :min="1" inputId="horizontal-buttons" showButtons
-										buttonLayout="horizontal" :step="1" decrementButtonclass="" incrementButtonclass=""
+									<input-number v-model="quantity" :min="food.min_order" inputId="horizontal-buttons" showButtons
+										buttonLayout="horizontal" :step="food.min_order" decrementButtonclass="" incrementButtonclass=""
 										class="d-flex align-items-center" incrementButtonIcon="pi pi-plus"
 										decrementButtonIcon="pi pi-minus" />
 
 								</div>
 							</div>
-							<div class="mt-3 text-end text-md-start">
-								<push-button type="submit" text="choose" v-if="!cartQuantity(food)"></push-button>
-								<!-- <small v-esle>
-											Added to Cart
-										</small> -->
+							<div class="mt-3 w-100 d-flex justify-content-end justify-content-md-start text-end text-md-start">
+								<div style="max-width:150px" class="w-100">
+									<push-button type="submit" text="choose" v-if="!cartQuantity(food)"></push-button>
+									<!-- <small v-esle>
+												Added to Cart
+											</small> -->
+								</div>
 							</div>
 						</form>
 					</div>
@@ -147,8 +149,8 @@ export default {
 				</div>
 			</div>
 		</div>
-		<div class="d-flex justify-content-start justify-content-md-center my-4 my-md-0">
-			<div style="max-width:900px" class="w-100">
+		<div class="d-flex justify-content-start justify-content-md-center w-100 my-4 my-md-0">
+			<div style="max-width:900px" class="w-100 ">
 				<swiper :breakpoints="{
 					// when window width is >= 640px
 					300: {
@@ -158,14 +160,14 @@ export default {
 						slidesPerView: 3,
 					},
 					790: {
-						slidesPerView: 3,
+						slidesPerView: 5,
 					},
 					// when window width is >= 768px
 					968: {
 						slidesPerView: 5,
 					},
 				}" :autoplay="false" :grabCursor="true" :pagination="{ clickable: true, }" :navigation="true" :space-between="3"
-					@swiper="onSwiper" @_slideChange="onSlideChange" class="px-5">
+					@swiper="onSwiper" @_slideChange="onSlideChange" class="px-2 px-md-5 mx-auto">
 					<swiper-slide v-for="food in this.$store.state.products" :key="food">
 						<food-card :food="food" :quantity="cartQuantity(food)" @click="selectFood(food)"
 							:selected="this.food == food"></food-card>
@@ -184,10 +186,11 @@ export default {
 			</button>
 			<request-button class="mt-3"></request-button>
 		</div>
-		<Dialog v-model:visible="foodTrayMobile" :dismissableMask="true" :closable="false" modal class="p-3 w-100" style="">
-			<div>
-				<food-tray trayHeight="200px" style="max-width:400px" class="w-100"></food-tray>
-			</div>
+		<Dialog v-model:visible="foodTrayMobile" :dismissableMask="true" :closable="false" modal class="p-3" style="">
+			<span class="">
+				<food-tray trayHeight="200px" style="max-width:400px;min-width:300px;width:100%"
+					class="w-100 mx-auto my-auto"></food-tray>
+			</span>
 		</Dialog>
 	</div>
 </template>
@@ -206,19 +209,23 @@ export default {
 	top: 0px;
 	width: 100%;
 	max-height: 250px;
+
 	@media(min-width:567px) {
 		max-height: 250px !important;
 	}
 
 	/* z-index:-0.99999999 !important; */
 }
+
 .food-text {
-	font-size:36px;
-	@media(max-width:768px){
-		font-size:28px;
+	font-size: 36px;
+
+	@media(max-width:768px) {
+		font-size: 28px;
 	}
-	@media(min-width:966px){
-		font-size:42px;
+
+	@media(min-width:966px) {
+		font-size: 42px;
 	}
 }
 

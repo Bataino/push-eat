@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <div class="p-2 text-center" style="max-width:200px;min-width:170px;font-size: .8rem;">
+  <div class="p-2 text-center" style="max-width:180px;min-width:170px;font-size: .8rem;">
     <div class="btn py-2" :class="selected ? 'btn-pe-green' : ''" style="">
       <div class="museo-900 position-relative p-3" style="p-2">
         <img src="/images/spag.png" class=" w-100 p-overlay-badge" v-badge.success="'23'">

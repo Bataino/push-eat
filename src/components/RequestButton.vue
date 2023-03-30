@@ -1,5 +1,5 @@
 <template>
-  <div class="btn btn-pe-green rounded-5 w-100 p-2 nexa-light bg-pe-green" @click="this.$router.push('/request')">
+  <div class="btn btn-pe-green rounded-10 w-100 p-3 nexa-light bg-pe-green" @click="this.$router.push('/request')">
     Can’t find what you want? click here
   </div>
 </template>
