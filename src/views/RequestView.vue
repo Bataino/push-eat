@@ -19,7 +19,7 @@ export default {
 			<div class="col-12 col-md-7">
 				<div class="w-100 h-100 px-3 py-3 p-md-0 pe-md-5">
 					<div class="">
-						<h1 class="museo-1000 h2-sm text-pe-green " style="font-size:40px">
+						<h1 class="museo-1000 h2-sm text-pe-green" style="font-size:40px">
 							<span class="text-pe-dark">
 								Not Being Able to
 							</span><br>

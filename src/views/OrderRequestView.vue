@@ -18,7 +18,7 @@ export default {
 		}
 	},
 	computed: {
-		url(){
+		url() {
 			return URL.createObjectURL(this.file)
 		}
 	},
@@ -37,14 +37,20 @@ export default {
 
 				})
 		},
-		updateFile(){
+		updateFile() {
 			const image = this.$refs.image.files[0]
 			this.file = image
 			console.log(image)
 		}
 	},
 	created() {
-		this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+		console.log("testing")
+		try {
+			this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+		}
+		catch (e) {
+
+		}
 
 	}
 }
@@ -93,8 +99,8 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
 						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
-					<textarea required v-model="order.request" placeholder="Write your request here" class="form-control border rounded-10 p-2 my-3"
-						style="min-height:100px;"></textarea>
+					<textarea required v-model="order.request" placeholder="Write your request here"
+						class="form-control border rounded-10 p-2 my-3" style="min-height:100px;"></textarea>
 					<div class="d-flex position-relative p-4 justify-content-center border-dotted rounded-10 text-center"
 						style="border: 1px dashed lightgray">
 						<div v-if="!file.name">
@@ -105,7 +111,7 @@ export default {
 							<br>
 							File type: png, jpeg, jpg
 						</div>
-						<div v-else >
+						<div v-else>
 							<img :src="url" class="w-100 -100" style="max-height:200px" />
 						</div>
 						<input type="file" ref="image" required @change="updateFile" id="image" class="" />

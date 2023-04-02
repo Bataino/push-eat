@@ -58,6 +58,14 @@ export default {
 				qty = this.$store.state.cart[food.id].quantity
 			}
 			return qty
+		},
+		getHeadFormat(name){
+			let split = name.split(" ")
+			let total = Number((split.length/3).toFixed(0))
+			let arr = []
+			for(let x = 0;x<3;x++){
+				arr.push(split.slice(x,))
+			}
 		}
 	},
 	watch: {
@@ -109,7 +117,7 @@ export default {
 				<div class="ps-4 pe-4 pe-md-0 ps-md-1 p-lg-0 row">
 					<div class="col-6 col-md-12">
 						<h2 class="fw-bold pt-0 pt-md-5">
-							<span class="fw-bold food-text" v-for="(e, i) in food.name.split(' ')" :key="e"
+							<span class="fw-bold food-text" v-for="(e, i) in getHeadFormat(food.name)" :key="e"
 								:class="i == 0 ? 'nexa-light' : 'nexa'">
 								{{ e }}<br>
 							</span>
@@ -131,8 +139,8 @@ export default {
 								</div>
 							</div>
 							<div class="mt-3 w-100 d-flex justify-content-end justify-content-md-start text-end text-md-start">
-								<div style="max-width:150px" class="w-100">
-									<push-button type="submit" text="choose" v-if="!cartQuantity(food)"></push-button>
+								<div style="min-width:100px;max-width:150px" class="w-100 choose">
+									<push-button type="submit" class="w-100"  text="choose" v-if="!cartQuantity(food)"></push-button>
 									<!-- <small v-esle>
 												Added to Cart
 											</small> -->
@@ -154,9 +162,9 @@ export default {
 				<swiper :breakpoints="{
 					// when window width is >= 640px
 					300: {
-						slidesPerView: 2,
+						slidesPerView:2,
 					},
-					567: {
+					400: {
 						slidesPerView: 3,
 					},
 					790: {
@@ -166,7 +174,7 @@ export default {
 					968: {
 						slidesPerView: 5,
 					},
-				}" :autoplay="false" :grabCursor="true" :pagination="{ clickable: true, }" :navigation="true" :space-between="3"
+				}" :autoplay="false" :grabCursor="true" :pagination="{ clickable: true, }" :navigation="true" :space-between="1"
 					@swiper="onSwiper" @_slideChange="onSlideChange" class="px-2 px-md-5 mx-auto">
 					<swiper-slide v-for="food in this.$store.state.products" :key="food">
 						<food-card :food="food" :quantity="cartQuantity(food)" @click="selectFood(food)"
@@ -196,6 +204,11 @@ export default {
 </template>
 
 <style lang="less">
+.choose {
+	@media(max-width:468px){
+		max-width:110px !important;
+	}
+}
 .curve-image-wrapper {
 	padding-top: 8%;
 
