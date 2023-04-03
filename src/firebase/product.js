@@ -1,5 +1,6 @@
-import { db } from "@/firebase/firebase"
+import app, { db, storage } from "./firebase"
 import store from "../store"
+import firebase from 'firebase/compat/app';
 
 export const getProducts = async () => {
     let products = db.collection("products_live")
@@ -9,12 +10,20 @@ export const getProducts = async () => {
     let newProducts = data.docs.map((el) => {
         let dat = el.data()
 
-        return { id:el.id , ...dat}
+        return { id: el.id, ...dat }
     })
 
     store.commit('update', {
-        name:"products",
+        name: "products",
         value: newProducts
     })
-   return newProducts
+    return newProducts
+}
+
+export const uploadImage = (file) => {
+    let uri = ''
+    const storageRef = storage.ref(`${file.name}`).put(file);
+    
+    // console.log("Image", img)
+    return storageRef
 }

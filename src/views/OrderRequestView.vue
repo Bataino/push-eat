@@ -4,17 +4,18 @@ import Checkbox from 'primevue/checkbox';
 import Widget from "../functions/widget";
 import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
-
+import { uploadImage } from "@/firebase/product"
 
 export default {
 	components: { PushButton, Checkbox, Dropdown },
 	data() {
 		return {
 			order: {
-				type: "chef",
+				type: "special",
 			},
 			isAgreed: false,
-			file: {}
+			file: {},
+			imageUrl:''
 		}
 	},
 	computed: {
@@ -23,9 +24,12 @@ export default {
 		}
 	},
 	methods: {
-		createOrder() {
+		async createOrder() {
 			Widget.openLoading()
-			createOrder(this.order)
+			if(!this.imageUrl){
+				this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 3000 });
+			}
+			createOrder({ ...this.order , meal_to_prepare: this.imageUrl})
 				.then((res) => {
 					Widget.dismiss()
 					if (res.data.success) {
@@ -37,10 +41,27 @@ export default {
 
 				})
 		},
-		updateFile() {
+		uploadImageAndCreateOrder(image){
+			const _this = this
+			const upl = uploadImage(image)
+			upl.on(`success`,
+			img => {
+				// console.log(img)
+			},
+			error => { console.error(error.message) },
+			() => {
+				upl.snapshot.ref.getDownloadURL().then((url) => {
+					_this.imageUrl = url
+					createOrder()
+				});
+			})
+			return link
+		},
+		async updateFile() {
 			const image = this.$refs.image.files[0]
+			// const b = this.uploadImage(image)
 			this.file = image
-			console.log(image)
+			// console.log("Order Image url",b)
 		}
 	},
 	created() {
@@ -99,7 +120,7 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
 						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
-					<textarea required v-model="order.request" placeholder="Write your request here"
+					<textarea required v-model="order.note" placeholder="Write your request here"
 						class="form-control border rounded-10 p-2 my-3" style="min-height:100px;"></textarea>
 					<div class="d-flex position-relative p-4 justify-content-center border-dotted rounded-10 text-center"
 						style="border: 1px dashed lightgray">

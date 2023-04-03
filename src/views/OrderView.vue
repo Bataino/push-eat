@@ -33,7 +33,12 @@ export default {
 		}
 	},
 	created() {
-		this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+		try {
+			this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+		}
+		catch (e) {
+
+		}
 
 	}
 }
@@ -84,7 +89,7 @@ export default {
 						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
 					<input required v-model="order.full_address" class="form-control border rounded-10 p-2 my-3"
 						placeholder="Full addresss" />
-					<Dropdown v-model="order.duration" :options="[1,2,3,4,5,6,7,8,9,10,11,12]"
+					<Dropdown v-model="order.duration" :options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
 						placeholder="For how many hours do you need the chef" min="1"
 						class="form-control text-start mb-3 p-0 border rounded-10 nexa">
 					</Dropdown>

@@ -60,12 +60,22 @@ export default {
 			return qty
 		},
 		getHeadFormat(name){
+			// ['goo','ss','sss']
 			let split = name.split(" ")
-			let total = Number((split.length/3).toFixed(0))
-			let arr = []
-			for(let x = 0;x<3;x++){
-				arr.push(split.slice(x,))
+			if(split.length <= 3){
+				return split
 			}
+			let total = Number((split.length/3).toFixed(0))
+			total == 1 ? total+=total :''
+			console.log("total", total)
+			let arr = []
+			for(let x = 0;x<split.length;){
+				let sp = split.splice(x,total)
+				console.log(x,sp)
+				arr.push(sp.join(" "))
+				// x++
+			}
+			return arr
 		}
 	},
 	watch: {

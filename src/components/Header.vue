@@ -120,12 +120,6 @@ export default {
 					</span>
 				</div>
 			</OverlayPanel>
-			<Teleport to=".menuuu">
-				<div class="">
-					<p>Hello from the modal!</p>
-					<h1>START DEY</h1>
-				</div>
-			</Teleport>
 		</div>
 	</div>
 </template>
