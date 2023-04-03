@@ -82,6 +82,9 @@ export default {
 				return !this.$refs.menu.$data.overlayVisible
 			}
 			return false
+		},
+		openHome(){
+			this.$router.push('/')
 		}
 	}
 }
@@ -92,8 +95,8 @@ export default {
 	<div class="py-3 py-md-4 px-3 px-md-5 _position-absolute w-100">
 		<!-- <ProgressBar mode="indeterminate" style="height: .5em" /> -->
 		<div class="d-flex justify-content-between align-items-center">
-			<button class="py-2 _bg-danger border-0 bg-transparent img-width" @click="this.$router.push('/')">
-				<img src="/images/logo.png" class="w-100" @click="this.$router.push('/')">
+			<button class="py-2 _bg-danger border-0 bg-transparent img-width" @click="openHome">
+				<img src="/images/logo.png" class="w-100">
 			</button>
 			<button class="border-0 bg-transparent d-flex align-items-center py-2 pe-point" @click="toggle">
 				<img src="/images/icon/Vector.png" v-if="!menuIsOpen" class="" style="width:25px" />
