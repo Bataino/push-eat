@@ -84,7 +84,7 @@ export default {
 			return false
 		},
 		openHome(){
-			this.$router.push('/')
+			location.href = '/'
 		}
 	}
 }

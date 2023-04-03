@@ -73,7 +73,7 @@ export default {
 		<Card style="min-width:100%;border-radius: 20px;" :style="`height:${height}`"
 			class="bg-pe-dark text-white position-relative py-0">
 			<template #title>
-				<span class="museo-1000" style="font-size: x-large;">
+				<span class="museo-1000 px-2" style="font-size: x-large;">
 					Almost there
 				</span>
 			</template>
@@ -82,19 +82,19 @@ export default {
 				<div class="px-2 text-gray" :style="`min-height:${trayHeight ?? '200px'}`">
 					<div class="">
 						<input type="email" v-model="order.email" id="email" required
-							class="p-3 border  rounded-10 form-control">
+							class="p-3 border rounded-10 form-control" placeholder="Email">
 					</div>
 					<div class="">
 						<input type="text" v-model="order.first_name" id="first_name" required
-							class="p-3 border  rounded-10 form-control">
+							class="p-3 border rounded-10 form-control"  placeholder="First Name">
 					</div>
 					<div class="">
 						<input type="text" v-model="order.last_name" id="last_name" required
-							class="p-3 border  rounded-10 form-control">
+							class="p-3 border  rounded-10 form-control"  placeholder="Last Name">
 					</div>
 					<div class="">
 						<input type="tel" maxlength="11" minlength="11" inputmode="Numeric" v-model="order.phone_number"
-							id="phone" required class="p-3 border  rounded-10 form-control">
+							id="phone" required class="p-3 border rounded-10 form-control" placeholder="Phone Number">
 					</div>
 					<div class="">
 						<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
@@ -104,11 +104,11 @@ export default {
 					</div>
 					<div class="">
 						<input type="text" v-model="order.full_address" id="full_address" required
-							class="p-3 mt-1 border  rounded-10 form-control">
+							class="p-3 mt-1 border  rounded-10 form-control" placeholder="Full Address">
 					</div>
 					<div class="d-flex  my-2 align-items-start field-checkbox">
 						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
-						<span for="ingredient1" class="ms-2"> I agree to the
+						<span for="ingredient1" class="ms-2 text-white"> I agree to the
 							security agreement, terms and conditions.
 						</span>
 					</div>
@@ -116,7 +116,7 @@ export default {
 			</template>
 
 		</Card>
-		<div class="py- text-center px-4 px-md-0">
+		<div class="py-md-3 text-center px-4 px-md-0">
 			<button class="btn btn-pe-green d-none d-md-block w-100 rounded-10 p-3 my-1 nexa"
 				:disabled="!Object.entries(this.$store.state.cart)[0] || isNotCompleted" type="submit">
 				<span class="fs-6 nexa">
@@ -157,8 +157,9 @@ dropdown {
 	// border-color: gray !important;
 	// margin-top: px;
 	margin-bottom: 10px;
-	// color: gray;
+	color: white;
 	font-size: 12px;
+	background-color:transparent;
 }
 
 span {

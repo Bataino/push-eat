@@ -34,11 +34,11 @@ export default {
 <template>
 	<div class="w-100">
 		<swiper :autoplay="{
-			delay: 5000,
+			delay: 7000,
 		}" 
 		:slidesPerView="1" :grabCursor="true" :navigation="false" :space-between="0" @swiper="onSwiper"
 			@_slideChange="onSlideChange" class="">
-			<swiper-slide class="w-100">
+			<swiper-slide class="">
 				<chef-view></chef-view>
 			</swiper-slide>
 			<swiper-slide>
@@ -52,5 +52,8 @@ export default {
 </template>
 
 <style>
+swiper-slide {
+
+}
 
 </style>

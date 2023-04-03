@@ -96,6 +96,7 @@ export default {
 		await getProducts()
 			.then((data) => {
 				this.food = this.$store.state.products[0] ?? {}
+				this.food.quantity = this.$store.state.products[0].min_order ?? {}
 			})
 	},
 	mounted() {
@@ -142,7 +143,7 @@ export default {
 								<div class="border mt-md-2 ms-3 rounded-10 d-flex w-100 justify-content-center justify-content-md-start align-items-center p-1 px-2"
 									style="min-width:100px;max-width:150px">
 									<input-number v-model="quantity" :min="food.min_order" inputId="horizontal-buttons" showButtons
-										buttonLayout="horizontal" :step="food.min_order" decrementButtonclass="" incrementButtonclass=""
+										buttonLayout="horizontal" :step="1" decrementButtonclass="" incrementButtonclass=""
 										class="d-flex align-items-center" incrementButtonIcon="pi pi-plus"
 										decrementButtonIcon="pi pi-minus" />
 

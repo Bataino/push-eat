@@ -24,7 +24,7 @@ export default {
 						Rice, beans or eba?
 					</h1>
 				</div>
-				<div class="w-100 d-flex justify-content-center d-md-none">
+				<div class="w-100 py-2 d-flex justify-content-center d-md-none">
 					<img src="/images/spag-green-overlay.png" class="" />
 				</div>
 				<div class="nexa-light my-4 my-md-5 col-12 col-lg-10 fs-md-5">
