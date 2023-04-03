@@ -115,12 +115,12 @@ export default {
 		<img src="/images/curve.svg" class="position-absolute d-none d-md-inline"
 			style="left:0;top:0;width:49%;max-width:450px" />
 		<div class="position-relative w-100 text-center d-md-none curve-image-wrapper" style="">
-			<img src="/images/spag.png" class="w-100" style="max-width:200px" />
+			<img :src="food.image" class="w-100" style="max-width:200px" />
 		</div>
 		<div class="row no-gutters _pt-4">
 			<div class="col-5 col-lg-4 d-none d-md-flex ">
 				<div class="position-relative w-100 px-1 ">
-					<img src="/images/spag.png" class="w-100 ms-3" ref="foodImg" style="max-width:450px" />
+					<img :src="food.image" class="w-100 ms-3" ref="foodImg" style="max-width:450px" />
 				</div>
 			</div>
 			<div class="col-12 col-md-3 col-lg-4 position-relative">
@@ -244,7 +244,7 @@ export default {
 	font-size: 36px;
 
 	@media(max-width:768px) {
-		font-size: 28px;
+		font-size: 24px;
 	}
 
 	@media(min-width:966px) {

@@ -15,7 +15,7 @@ export default {
 			},
 			isAgreed: false,
 			file: {},
-			imageUrl:''
+			imageUrl: null
 		}
 	},
 	computed: {
@@ -26,10 +26,14 @@ export default {
 	methods: {
 		async createOrder() {
 			Widget.openLoading()
-			if(!this.imageUrl){
+			if (!this.imageUrl) {
 				this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 3000 });
+				return
 			}
-			createOrder({ ...this.order , meal_to_prepare: this.imageUrl})
+			// url =  this.imageUrl ?? url
+
+
+			createOrder({ ...this.order, meal_to_prepare: this.imageUrl })
 				.then((res) => {
 					Widget.dismiss()
 					if (res.data.success) {
@@ -41,20 +45,20 @@ export default {
 
 				})
 		},
-		uploadImageAndCreateOrder(image){
+		uploadImageAndCreateOrder(image) {
 			const _this = this
 			const upl = uploadImage(image)
 			upl.on(`success`,
-			img => {
-				// console.log(img)
-			},
-			error => { console.error(error.message) },
-			() => {
-				upl.snapshot.ref.getDownloadURL().then((url) => {
-					_this.imageUrl = url
-					createOrder()
-				});
-			})
+				img => {
+					// console.log(img)
+				},
+				error => { console.error(error.message) },
+				() => {
+					upl.snapshot.ref.getDownloadURL().then((url) => {
+						_this.imageUrl = url
+						this.createOrder(url)
+					});
+				})
 			return link
 		},
 		async updateFile() {
@@ -97,7 +101,7 @@ export default {
 			</div>
 		</div>
 		<div class="col-12 col-md-6">
-			<form @submit.prevent="createOrder" class="w-100 h-100 p-3 ps-md-1 pe-md-3">
+			<form @submit.prevent="uploadImageAndCreateOrder" class="w-100 h-100 p-3 ps-md-1 pe-md-3">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1"
 					@click="this.$router.go(-1)" />
 				<div class="">
@@ -108,20 +112,24 @@ export default {
 				<div class="nexa-light my-5">
 					<div class="row p-0">
 						<div class="col-12 col-md-6 mb-3 mb-md-0">
-							<input required v-model="order.first_name" class="form-control border rounded-10 p-2"
+							<input required v-model="order.first_name" class="form-control border rounded-10 p-3"
 								placeholder="First Name" />
 						</div>
 						<div class="col-12 col-md-6 my-0">
-							<input required v-model="order.last_name" class="form-control border rounded-10 p-2 "
+							<input required v-model="order.last_name" class="form-control border rounded-10 p-3 "
 								placeholder="Last Name" />
 						</div>
 					</div>
-					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-2 my-3"
+					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
-						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
+						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
+					<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+						placeholder="Where are you ordering from"
+						class="form-control text-start m-0 border rounded-10 nexa">
+					</Dropdown>
 					<textarea required v-model="order.note" placeholder="Write your request here"
-						class="form-control border rounded-10 p-2 my-3" style="min-height:100px;"></textarea>
+						class="form-control border rounded-10 p-3 my-3" style="min-height:100px;"></textarea>
 					<div class="d-flex position-relative p-4 justify-content-center border-dotted rounded-10 text-center"
 						style="border: 1px dashed lightgray">
 						<div v-if="!file.name">

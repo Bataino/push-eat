@@ -75,31 +75,31 @@ export default {
 				<div class="nexa-light my-5">
 					<div class="row p-0">
 						<div class="col-12 col-md-6 mb-3 mb-md-0">
-							<input required v-model="order.first_name" class="form-control border rounded-10 p-2"
+							<input required v-model="order.first_name" class="form-control border rounded-10 p-3"
 								placeholder="First Name" />
 						</div>
 						<div class="col-12 col-md-6 my-0">
-							<input required v-model="order.last_name" class="form-control border rounded-10 p-2 "
+							<input required v-model="order.last_name" class="form-control border rounded-10 p-3 "
 								placeholder="Last Name" />
 						</div>
 					</div>
-					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-2 my-3"
+					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
-						class="form-control border rounded-10 p-2 my-3" placeholder="Phone Number" />
-					<input required v-model="order.full_address" class="form-control border rounded-10 p-2 my-3"
+						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
+						<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+						placeholder="Where are you ordering from"
+						class="form-control text-start m-0 _p-0 border rounded-10 nexa">
+					</Dropdown>
+					<input required v-model="order.full_address" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Full addresss" />
 					<Dropdown v-model="order.duration" :options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
 						placeholder="For how many hours do you need the chef" min="1"
-						class="form-control text-start mb-3 p-0 border rounded-10 nexa">
-					</Dropdown>
-					<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
-						placeholder="Where are you ordering from"
-						class="form-control text-start m-0 p-0 border rounded-10 nexa">
-					</Dropdown>
-					<input required v-model="order.meal_to_prepare" class="form-control border rounded-10 p-2 my-3"
+						class="form-control text-start _p-0 border rounded-10 nexa">
+					</Dropdown>		
+					<input required v-model="order.meal_to_prepare" class="form-control border rounded-10 p-3 my-3"
 						placeholder="What will the chef prepare for you?" />
-					<input v-model="order.note" class="form-control border rounded-10 p-2 my-3"
+					<input v-model="order.note" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Any special request?" />
 					<div class="d-flex align-items-start">
 						<Checkbox inputId="ingredient1" name="pizza" required v-model="isAgreed" :binary="true" />

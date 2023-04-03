@@ -49,22 +49,22 @@ export default {
 				{
 					name: "Instagram",
 					icon: "akar-icons:instagram-fill",
-					link: "https://www.instagram.com/rentout.app"
-				},
-				// {
-				//     name: "Facebook",
-				//     icon: "dashicons:facebook-alt",
-				//     link: "#"
-				// },
-				{
-					name: "LinkedIn",
-					icon: "akar-icons:linkedin-box-fill",
-					link: "https://www.linkedin.com/company/rentoutapp"
+					link: "https://instagram.com/justpusheat?igshid=YmMyMTA2M2Y="
 				},
 				{
-					name: "Twitter",
+				    name: "Facebook",
+				    icon: "dashicons:facebook-alt",
+				    link: "https://web.facebook.com/profile.php?id=100090722934263"
+				},
+				{
+					name: "Tiktok",
+					icon: "ic:baseline-tiktok",
+					link: "https://vm.tiktok.com/ZMYbLGvkK/"
+				},
+				{
+					name: "Twittw",
 					icon: "akar-icons:twitter-fill",
-					link: "https://twitter.com/rentoutng"
+					link: "https://twitter.com/JustPushEat"
 				},
 			],
 			menuIsOpen: false
@@ -112,7 +112,7 @@ export default {
 					</div>
 					<b class="text-pe-dark small museo-500">
 						<a href="mailto:hey@justpusheat.com" class="text-pe-dark">
-							hey@justpusheat.com<br>
+							support@justpusheat.com<br>
 						</a>
 					</b>
 					<span class="text-gray small museo-500">

@@ -21,7 +21,7 @@ export default {
 					<div class="">
 						<h1 class="museo-1000 h2-sm text-pe-green" style="font-size:40px">
 							<span class="text-pe-dark">
-								Not Being Able to
+								Not Able to
 							</span><br>
 							Find the Dish You Want
 						</h1>
