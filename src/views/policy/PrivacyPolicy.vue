@@ -10,7 +10,7 @@
     -- Your privacy is critically important to us.<br>
 
     It is Push Eat's policy to respect your privacy regarding any information we may collect while operating our website.
-    This Privacy Policy applies to push-eat.com (hereinafter, "us", "we", or "push-eat.com"). We respect your privacy and
+    This Privacy Policy applies to justpusheat.com (hereinafter, "us", "we", or "justpusheat.com"). We respect your privacy and
     are committed to protecting personally identifiable information you may provide us through the Website. We have
     adopted this privacy policy ("Privacy Policy") to explain what information may be collected on our Website, how we use
     this information, and under what circumstances we may disclose the information to third parties. This Privacy Policy
@@ -29,7 +29,7 @@
     understand how Push Eat's visitors use its website. From time to time, Push Eat may release non-personally-identifying
     information in the aggregate, e.g., by publishing a report on trends in the usage of its website.<br>
     Push Eat also collects potentially personally-identifying information like Internet Protocol (IP) addresses for logged
-    in users and for users leaving comments on http://push-eat.com blog posts. Push Eat only discloses logged in user and
+    in users and for users leaving comments on http://justpusheat.com blog posts. Push Eat only discloses logged in user and
     commenter IP addresses under the same circumstances that it uses and discloses personally-identifying information as
     described below.<br>
 
@@ -37,7 +37,7 @@
 
     Certain visitors to Push Eat's websites choose to interact with Push Eat in ways that require Push Eat to gather
     personally-identifying information. The amount and type of information that Push Eat gathers depends on the nature of
-    the interaction. For example, we ask visitors who sign up for a blog at http://push-eat.com to provide a username and
+    the interaction. For example, we ask visitors who sign up for a blog at http://justpusheat.com to provide a username and
     email address.<br>
 
     <br><b class="nexa-bold"> - Security</b> <br>
@@ -62,9 +62,9 @@
     We have no control over, and assume no responsibility for the content, privacy policies or practices of any third
     party sites, products or services.
 
-    <br><b class="nexa-bold"> - Push-eat.com uses Google AdWords for remarketing</b> <br>
+    <br><b class="nexa-bold"> - justpusheat.com uses Google AdWords for remarketing</b> <br>
 
-    Push-eat.com uses the remarketing services to advertise on third party websites (including Google) to previous
+    justpusheat.com uses the remarketing services to advertise on third party websites (including Google) to previous
     visitors to our site. It could mean that we advertise to previous visitors who haven't completed a task on our site,
     for example using the contact form to make an enquiry. This could be in the form of an advertisement on the Google
     search results page, or a site in the Google Display Network. Third-party vendors, including Google, use cookies to
@@ -88,7 +88,7 @@
     subpoena, court order or other governmental request, or when Push Eat believes in good faith that disclosure is
     reasonably necessary to protect the property or rights of Push Eat, third parties or the public at large<br>
 
-  If you are a registered user of http://push-eat.com and have supplied your email address, Push Eat may occasionally
+  If you are a registered user of http://justpusheat.com and have supplied your email address, Push Eat may occasionally
   send you an email to tell you about new features, solicit your feedback, or just keep you up to date with what's going
   on with Push Eat and our products. We primarily use our blog to communicate this type of information, so we expect to
   keep this type of email to a minimum. If you send us a request (for example via a support email or via one of our
@@ -110,7 +110,7 @@
   others to display personalized content, appropriate advertising and store your preferences on your computer.
   A cookie is a string of information that a website stores on a visitor's computer, and that the visitor's browser
   provides to the website each time the visitor returns. Push Eat uses cookies to help Push Eat identify and track
-  visitors, their usage of http://push-eat.com, and their website access preferences. Push Eat visitors who do not wish
+  visitors, their usage of http://justpusheat.com, and their website access preferences. Push Eat visitors who do not wish
   to have cookies placed on their computers should set their browsers to refuse cookies before using Push Eat's
   websites, with the drawback that certain features of Push Eat's websites may not function properly without the aid of
   cookies.<br>
