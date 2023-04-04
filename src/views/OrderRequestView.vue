@@ -124,7 +124,7 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
-					<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+					<Dropdown required v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
 						placeholder="Where are you ordering from"
 						class="form-control text-start m-0 border rounded-10 nexa">
 					</Dropdown>

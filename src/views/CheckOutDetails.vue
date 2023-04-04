@@ -97,7 +97,7 @@ export default {
 							id="phone" required class="p-3 border rounded-10 form-control" placeholder="Phone Number">
 					</div>
 					<div class="">
-						<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+						<Dropdown required v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
 							placeholder="Where are you ordering from"
 							class="p- m-0 mb-2 border text-start rounded-10 form-control shadow-none nexa">
 						</Dropdown>

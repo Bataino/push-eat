@@ -3,9 +3,12 @@ import store from "../store"
 import firebase from 'firebase/compat/app';
 
 export const getProducts = async () => {
-    let products = db.collection("products_live")
-    let data = await products.get()
+    let products = db.collection("products")
+    if (process.env.NODE_ENV === "production") {
+        products = db.collection("products_live")
+    }
 
+    let data = await products.get()
     console.log(data.docs[0])
     let newProducts = data.docs.map((el) => {
         let dat = el.data()
@@ -23,7 +26,7 @@ export const getProducts = async () => {
 export const uploadImage = (file) => {
     let uri = ''
     const storageRef = storage.ref(`${file.name}`).put(file);
-    
+
     // console.log("Image", img)
     return storageRef
 }
