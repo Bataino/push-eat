@@ -5,6 +5,7 @@ import Widget from "../functions/widget";
 import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
 import { uploadImage } from "@/firebase/product"
+import { storeUser } from "@/functions/storage";
 
 export default {
 	components: { PushButton, Checkbox, Dropdown },
@@ -25,9 +26,9 @@ export default {
 	},
 	methods: {
 		async createOrder() {
-			Widget.openLoading()
+			storeUser(this.order)
 			if (!this.imageUrl) {
-				this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 3000 });
+				this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 5000 });
 				return
 			}
 			// url =  this.imageUrl ?? url
@@ -37,7 +38,7 @@ export default {
 				.then((res) => {
 					Widget.dismiss()
 					if (res.data.success) {
-						this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Order submitted', life: 3000 });
+						this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Order submitted', life: 5000 });
 						this.$router.push('/order/success')
 						return;
 					}
@@ -46,8 +47,9 @@ export default {
 				})
 		},
 		uploadImageAndCreateOrder(image) {
+			Widget.openLoading()
 			const _this = this
-			const upl = uploadImage(image)
+			const upl = uploadImage(this.file)
 			upl.on(`success`,
 				img => {
 					// console.log(img)
@@ -59,7 +61,6 @@ export default {
 						this.createOrder(url)
 					});
 				})
-			return link
 		},
 		async updateFile() {
 			const image = this.$refs.image.files[0]
@@ -122,12 +123,15 @@ export default {
 					</div>
 					<input required v-model="order.email" type="email" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Email address" />
-					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
+					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="15"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
+						
 					<Dropdown required v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
 						placeholder="Where are you ordering from"
 						class="form-control text-start m-0 border rounded-10 nexa">
 					</Dropdown>
+					<input required v-model="order.full_address" inputmode="numeric" minlength="11"
+						class="form-control border rounded-10 p-3 my-3" placeholder="Full Address" />
 					<textarea required v-model="order.note" placeholder="Write your request here"
 						class="form-control border rounded-10 p-3 my-3" style="min-height:100px;"></textarea>
 					<div class="d-flex position-relative p-4 justify-content-center border-dotted rounded-10 text-center"

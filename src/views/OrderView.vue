@@ -4,6 +4,7 @@ import Checkbox from 'primevue/checkbox';
 import Widget from "../functions/widget";
 import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
+import { storeUser } from "@/functions/storage";
 
 
 export default {
@@ -18,16 +19,17 @@ export default {
 	},
 	methods: {
 		createOrder() {
+			storeUser(this.order)
 			Widget.openLoading()
 			createOrder(this.order)
 				.then((res) => {
 					Widget.dismiss()
 					if (res.data.success) {
-						this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Order submitted', life: 3000 });
+						this.$toast.add({ severity: 'success', summary: 'Success Message', detail: 'Order submitted', life: 5000 });
 						this.$router.push('/order/success')
 						return;
 					}
-					this.$toast.add({ severity: 'danger', summary: 'Error', detail: 'unknown error occured', life: 3000 });
+					this.$toast.add({ severity: 'danger', summary: 'Error', detail: 'unknown error occured', life: 5000 });
 
 				})
 		}

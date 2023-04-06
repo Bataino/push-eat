@@ -4,6 +4,7 @@ import Checkbox from "primevue/checkbox"
 import Dropdown from "primevue/dropdown"
 import { createOrder } from "@/services/order"
 import Widget from "@/functions/widget"
+import { storeUser } from "@/functions/storage"
 
 export default {
 	name: "CheckOut",
@@ -16,7 +17,9 @@ export default {
 	data() {
 		return {
 			isAgreed: true,
-			order: {}
+			order: {
+				type:"meal"
+			}
 		}
 	},
 	computed: {
@@ -28,8 +31,8 @@ export default {
 	},
 	methods: {
 		createOrder() {
+			storeUser(this.order)
 			Widget.openLoading()
-
 			const cart = this.$store.state.cart
 			let products = Object.entries(cart).map((e) => {
 				return {
@@ -61,8 +64,10 @@ export default {
 		}
 	},
 	created() {
-		if (localStorage.getItem("user"))
-			this.order = JSON.parse(localStorage.getItem("user")) ?? {}
+		if (localStorage.getItem("user")){
+			const user = JSON.parse(localStorage.getItem("user")) ?? {}
+			this.order = { ...this.order, ...user }
+		}
 	}
 
 }
@@ -108,7 +113,7 @@ export default {
 					</div>
 					<div class="d-flex  my-2 align-items-start field-checkbox">
 						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
-						<span for="ingredient1" class="ms-2 text-white"> I agree to the
+						<span for="ingredient1" class="ms-2 gray text-md-white"> I agree to the
 							security agreement, terms and conditions.
 						</span>
 					</div>
@@ -157,7 +162,9 @@ dropdown {
 	// border-color: gray !important;
 	// margin-top: px;
 	margin-bottom: 10px;
-	color: white;
+	@media(min-width:768px){
+		color:white;
+	}
 	font-size: 12px;
 	background-color:transparent;
 }
@@ -178,6 +185,10 @@ span {
 p-checkbox-icon {
 	background-color: transparent !important;
 }
-
+.text-md-white {
+	@media(min-width:768px){
+		color:white !important;
+	}
+}
 .text-sm {}
 </style> 

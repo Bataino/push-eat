@@ -1,12 +1,14 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
 import Header from './components/Header.vue'
+import Toast from 'primevue/toast'
 </script>
 
 <script>
 export default {
   components: {
-    Header
+    Header,
+    Toast
   },
   computed: {
     route() {
@@ -28,6 +30,7 @@ export default {
 
 <template>
   <div class="p-0 w-100 position-relative_" style="">
+    <Toast></Toast>
     <div class="position-relative" style="z-index:99999">
       <Header class="" v-if="!['order', 'request'].includes(route)" />
     </div>
