@@ -1,39 +1,39 @@
 <?xml version="1.0"?>
 <urlset>
   <url>
-    <loc>http://localhost/</loc>
+    <loc>http://justpusheat.com/</loc>
   </url>
   <url>
-    <loc>http://localhost/terms/refund</loc>
+    <loc>http://justpusheat.com/terms/refund</loc>
   </url>
   <url>
-    <loc>http://localhost/terms/policy</loc>
+    <loc>http://justpusheat.com/terms/policy</loc>
   </url>
   <url>
-    <loc>http://localhost/terms/security</loc>
+    <loc>http://justpusheat.com/terms/security</loc>
   </url>
   <url>
-    <loc>http://localhost/order/failure</loc>
+    <loc>http://justpusheat.com/order/failure</loc>
   </url>
   <url>
-    <loc>http://localhost/order/success</loc>
+    <loc>http://justpusheat.com/order/success</loc>
   </url>
   <url>
-    <loc>http://localhost/checkout/complete</loc>
+    <loc>http://justpusheat.com/checkout/complete</loc>
   </url>
   <url>
-    <loc>http://localhost/order</loc>
+    <loc>http://justpusheat.com/order</loc>
   </url>
   <url>
-    <loc>http://localhost/checkout</loc>
+    <loc>http://justpusheat.com/checkout</loc>
   </url>
   <url>
-    <loc>http://localhost/request</loc>
+    <loc>http://justpusheat.com/request</loc>
   </url>
   <url>
-    <loc>http://localhost/dish</loc>
+    <loc>http://justpusheat.com/dish</loc>
   </url>
   <url>
-    <loc>http://localhost/request</loc>
+    <loc>http://justpusheat.com/request</loc>
   </url>
 </urlset>
