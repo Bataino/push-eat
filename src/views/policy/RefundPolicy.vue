@@ -21,7 +21,7 @@
     have sufficient funds to make the payment.
     <br><br>
     After order has been confirmed, PushEat reserves all rights to accept cancelation, e.g because preparation of Food has
-    been completed and/or delivery personnel has already been dispatched then Push Eat shall have a right to charge you
+    been completed and/or delivery personnel has already been dispatched then PushEat shall have a right to charge you
     cancellation fee of ₦500, with a right to make a refund of the order value or recover from your subsequent order, the
     complete/ deficit cancellation fee, as applicable, to compensate our chef and delivery partner.
   </div>

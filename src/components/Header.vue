@@ -32,6 +32,10 @@ export default {
 					to: "/request"
 				},
 				{
+					label: 'Become a Push Chef',
+					url: "https://airtable.com/shr2m8RFwOE3LRGot"
+				},
+				{
 					label: 'Privacy policy',
 					to: '/terms/policy'
 				},
