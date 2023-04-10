@@ -106,9 +106,8 @@ export default {
 					<div class="d-flex align-items-start">
 						<Checkbox inputId="ingredient1" name="pizza" required v-model="isAgreed" :binary="true" />
 						<small for="ingredient1" class="ms-2"> I agree to the
-							<span class="text-pe-green">
-								security agreement, terms and conditions.
-							</span>
+							<a class="text-pe-green" href="/terms/service">security agreement</a>, 
+							<a class="text-pe-green" href="/terms/policy">terms and conditions</a>.
 						</small>
 					</div>
 				</div>

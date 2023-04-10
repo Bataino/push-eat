@@ -16,7 +16,7 @@ export default {
 	},
 	data() {
 		return {
-			isAgreed: true,
+			isAgreed: false,
 			order: {
 				type:"meal"
 			}
@@ -114,7 +114,8 @@ export default {
 					<div class="d-flex  my-2 align-items-start field-checkbox">
 						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
 						<span for="ingredient1" class="ms-2 gray text-md-white"> I agree to the
-							security agreement, terms and conditions.
+							<a class="text-pe-green" href="/terms/service">security agreement</a>, 
+							<a class="text-pe-green" href="/terms/policy">terms and conditions</a>.
 						</span>
 					</div>
 				</div>
