@@ -13,7 +13,8 @@ export default createStore({
             // { id: 31, name: "Vegan Spage7", price: 6000, img: "" },
         ],
         product: {},
-        cart: {}
+        cart: {},
+        coupons:[]
     },
     mutations: {
         update(state, { value, name }) {

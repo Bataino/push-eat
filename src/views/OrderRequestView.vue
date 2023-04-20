@@ -6,9 +6,10 @@ import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
 import { uploadImage } from "@/firebase/product"
 import { storeUser } from "@/functions/storage";
+import CouponCode from '@/components/CouponCode.vue';
 
 export default {
-	components: { PushButton, Checkbox, Dropdown },
+	components: { PushButton, Checkbox, Dropdown, CouponCode },
 	data() {
 		return {
 			order: {
@@ -83,8 +84,8 @@ export default {
 </script>
 
 <template>
-	<div class="row -10 p-0 m-0-ps-5" style="min-height:100vh">
-		<div class="col-12 col-md-5 d-none d-md-flex align-items-center">
+	<div class="row -10 p-0 m-0-ps-5" style="max-height:100vh">
+		<div class="col-12 col-md-5 d-none d-md-flex align-items-center"  style="max-height:100vh">
 			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center">
 				<div class="mx-auto" style="max-width: 400px;">
 					<div class="px-5 mx-auto">
@@ -101,8 +102,8 @@ export default {
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-md-6">
-			<form @submit.prevent="uploadImageAndCreateOrder" class="w-100 h-100 p-3 ps-md-1 pe-md-3">
+		<div class="col-12 col-md-7" >
+			<form @submit.prevent="uploadImageAndCreateOrder" style="max-height:100vh" class="w-100 overflow-auto h-100 p-3 ps-md-1 pe-md-3">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1"
 					@click="this.$router.go(-1)" />
 				<div class="">
@@ -110,7 +111,7 @@ export default {
 						Special request details
 					</h2>
 				</div>
-				<div class="nexa-light my-5">
+				<div class="nexa-light mt-5 mb-3">
 					<div class="row p-0">
 						<div class="col-12 col-md-6 mb-3 mb-md-0">
 							<input required v-model="order.first_name" class="form-control border rounded-10 p-3"
@@ -132,6 +133,7 @@ export default {
 					</Dropdown>
 					<input required v-model="order.full_address" inputmode="numeric" minlength="11"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Full Address" />
+					<coupon-code class="mb-3" v-model="order.coupon"></coupon-code>
 					<textarea required v-model="order.note" placeholder="Write your request here"
 						class="form-control border rounded-10 p-3 my-3" style="min-height:100px;"></textarea>
 					<div class="d-flex position-relative p-4 justify-content-center border-dotted rounded-10 text-center"

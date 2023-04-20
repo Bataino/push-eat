@@ -5,6 +5,7 @@ import Dropdown from "primevue/dropdown"
 import { createOrder } from "@/services/order"
 import Widget from "@/functions/widget"
 import { storeUser } from "@/functions/storage"
+import CouponCode from '@/components/CouponCode.vue'
 
 export default {
 	name: "CheckOut",
@@ -12,7 +13,8 @@ export default {
 	components: {
 		Checkbox,
 		Card,
-		Dropdown
+		Dropdown,
+CouponCode
 	},
 	data() {
 		return {
@@ -111,7 +113,8 @@ export default {
 						<input type="text" v-model="order.full_address" id="full_address" required
 							class="p-3 mt-1 border  rounded-10 form-control" placeholder="Full Address">
 					</div>
-					<div class="d-flex  my-2 align-items-start field-checkbox">
+					<coupon-code class="mb-3" type="meal" v-model="order.coupon"></coupon-code>
+					<div class="d-flex my-2 align-items-start field-checkbox">
 						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
 						<span for="ingredient1" class="ms-2 gray text-md-white"> I agree to the
 							<a class="text-pe-green" href="/terms/service">security agreement</a>, 

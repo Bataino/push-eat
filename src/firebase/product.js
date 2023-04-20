@@ -30,3 +30,13 @@ export const uploadImage = (file) => {
     // console.log("Image", img)
     return storageRef
 }
+
+export const confirmCoupons = async (id) => {
+    let coupons = db.collection("coupons_live")
+    if (process.env.NODE_ENV === "production") {
+        products = db.collection("coupons_live")
+    }
+    let data = await coupons.doc(id).get()
+    console.log(data)
+    return data
+}

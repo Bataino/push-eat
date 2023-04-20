@@ -5,10 +5,11 @@ import Widget from "../functions/widget";
 import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
 import { storeUser } from "@/functions/storage";
+import CouponCode from '../components/CouponCode.vue';
 
 
 export default {
-	components: { PushButton, Checkbox, Dropdown },
+	components: { PushButton, Checkbox, Dropdown, CouponCode },
 	data() {
 		return {
 			order: {
@@ -47,9 +48,9 @@ export default {
 </script>
 
 <template>
-	<div class="row -10 p-0 m-0-ps-5" style="min-height:100vh">
-		<div class="col-12 col-md-5 d-none d-md-flex align-items-center">
-			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center">
+	<div class="row -10 p-0 m-0-ps-5">
+		<div class="col-12 col-md-5 d-none d-md-flex align-items-center" style="max-height:100vh">
+			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center" >
 				<div class="mx-auto" style="max-width: 400px;">
 					<div class="px-5 mx-auto">
 						<img src="/images/spag-green-overlay.png" class="w-100" />
@@ -65,16 +66,16 @@ export default {
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-md-6">
-			<form @submit.prevent="createOrder" class="w-100 h-100 p-3 ps-md-1 pe-md-3">
-				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1"
+		<div class="col-12 col-md-7">
+			<form @submit.prevent="createOrder" class="w-100 _h-100 p-3 ps-md-1 pe-md-3 overflow-auto" style="max-height:100vh !important">
+				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1 d-md-none"
 					@click="this.$router.go(-1)" />
 				<div class="">
 					<h2 class="museo-1000 text-pe-green mt-3" _style="font-size:35px">
 						Fill in your details
 					</h2>
 				</div>
-				<div class="nexa-light my-5">
+				<div class="nexa-light mt-5">
 					<div class="row p-0">
 						<div class="col-12 col-md-6 mb-3 mb-md-0">
 							<input required v-model="order.first_name" class="form-control border rounded-10 p-3"
@@ -103,6 +104,7 @@ export default {
 						placeholder="What will the chef prepare for you?" />
 					<input v-model="order.note" class="form-control border rounded-10 p-3 my-3"
 						placeholder="Any special request?" />
+					<coupon-code class="mb-3" v-model="order.coupon"></coupon-code>
 					<div class="d-flex align-items-start">
 						<Checkbox inputId="ingredient1" name="pizza" required v-model="isAgreed" :binary="true" />
 						<small for="ingredient1" class="ms-2"> I agree to the
