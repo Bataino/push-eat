@@ -7,9 +7,11 @@ import { createOrder } from "@/services/order"
 import { uploadImage } from "@/firebase/product"
 import { storeUser } from "@/functions/storage";
 import CouponCode from '@/components/CouponCode.vue';
+import functionMixin from "@/mixin/function"
 
 export default {
 	components: { PushButton, Checkbox, Dropdown, CouponCode },
+	mixins:[functionMixin],
 	data() {
 		return {
 			order: {
@@ -17,7 +19,8 @@ export default {
 			},
 			isAgreed: false,
 			file: {},
-			imageUrl: null
+			imageUrl: null,
+			required: ["first_name", "last_name", "email", "location", "phone_number", "full_address"]
 		}
 	},
 	computed: {
@@ -85,7 +88,7 @@ export default {
 
 <template>
 	<div class="row -10 p-0 m-0-ps-5" style="max-height:100vh">
-		<div class="col-12 col-md-5 d-none d-md-flex align-items-center"  style="max-height:100vh">
+		<div class="col-12 col-md-5 d-none d-md-flex align-items-center" style="max-height:100vh">
 			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center">
 				<div class="mx-auto" style="max-width: 400px;">
 					<div class="px-5 mx-auto">
@@ -102,8 +105,9 @@ export default {
 				</div>
 			</div>
 		</div>
-		<div class="col-12 col-md-7" >
-			<form @submit.prevent="uploadImageAndCreateOrder" style="max-height:100vh" class="w-100 overflow-auto h-100 p-3 ps-md-1 pe-md-3">
+		<div class="col-12 col-md-7">
+			<form @submit.prevent="uploadImageAndCreateOrder" style="max-height:100vh"
+				class="w-100 overflow-auto h-100 p-3 ps-md-1 pe-md-3">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1"
 					@click="this.$router.go(-1)" />
 				<div class="">
@@ -126,10 +130,10 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="15"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
-						
-					<Dropdown required v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
-						placeholder="Where are you ordering from"
-						class="form-control text-start m-0 border rounded-10 nexa">
+
+					<Dropdown :required="true" v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+						placeholder="Where are you ordering from" class="form-control text-start m-0 border rounded-10 nexa"
+						>
 					</Dropdown>
 					<input required v-model="order.full_address" inputmode="numeric" minlength="11"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Full Address" />
@@ -152,7 +156,7 @@ export default {
 						<input type="file" ref="image" required @change="updateFile" id="image" class="" />
 					</div>
 				</div>
-				<push-button text="order now" type="submit" />
+				<push-button text="order now" type="submit" :disabled="!this.validateForm(this.order, this.required) || !file.name" />
 			</form>
 		</div>
 	</div>

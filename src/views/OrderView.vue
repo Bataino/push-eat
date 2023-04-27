@@ -6,7 +6,7 @@ import Dropdown from 'primevue/dropdown';
 import { createOrder } from "@/services/order"
 import { storeUser } from "@/functions/storage";
 import CouponCode from '../components/CouponCode.vue';
-
+import functionMixin from "@/mixin/function"
 
 export default {
 	components: { PushButton, Checkbox, Dropdown, CouponCode },
@@ -15,8 +15,12 @@ export default {
 			order: {
 				type: "chef",
 			},
-			isAgreed: false
+			isAgreed: false,
+			required: ["first_name", "last_name", "email", "location", "phone_number", "full_address", "duration", "meal_to_prepare"]
 		}
+	},
+	mixins: [functionMixin],
+	computed: {
 	},
 	methods: {
 		createOrder() {
@@ -50,7 +54,7 @@ export default {
 <template>
 	<div class="row -10 p-0 m-0-ps-5">
 		<div class="col-12 col-md-5 d-none d-md-flex align-items-center" style="max-height:100vh">
-			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center" >
+			<div class="w-100 h-100 p-4 bg-pe-dark d-flex align-items-center">
 				<div class="mx-auto" style="max-width: 400px;">
 					<div class="px-5 mx-auto">
 						<img src="/images/spag-green-overlay.png" class="w-100" />
@@ -67,7 +71,8 @@ export default {
 			</div>
 		</div>
 		<div class="col-12 col-md-7">
-			<form @submit.prevent="createOrder" class="w-100 _h-100 p-3 ps-md-1 pe-md-3 overflow-auto" style="max-height:100vh !important">
+			<form @submit.prevent="createOrder" class="w-100 _h-100 p-3 ps-md-1 pe-md-3 overflow-auto"
+				style="max-height:100vh !important">
 				<icon icon="material-symbols:arrow-circle-left-outline-rounded" class="text-pe-dark fs-1 d-md-none"
 					@click="this.$router.go(-1)" />
 				<div class="">
@@ -90,7 +95,7 @@ export default {
 						placeholder="Email address" />
 					<input required v-model="order.phone_number" inputmode="numeric" minlength="11" maxlength="11"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
-						<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
+					<Dropdown v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
 						placeholder="Where are you ordering from"
 						class="form-control text-start m-0 _p-0 border rounded-10 nexa" required>
 					</Dropdown>
@@ -98,8 +103,8 @@ export default {
 						placeholder="Full addresss" />
 					<Dropdown v-model="order.duration" :options="[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
 						placeholder="For how many hours do you need the chef" min="1"
-						class="form-control text-start _p-0 border rounded-10 nexa" required>
-					</Dropdown>		
+						class="form-control text-start _p-0 border rounded-10 nexa" :required="true">
+					</Dropdown>
 					<input required v-model="order.meal_to_prepare" class="form-control border rounded-10 p-3 my-3"
 						placeholder="What will the chef prepare for you?" />
 					<input v-model="order.note" class="form-control border rounded-10 p-3 my-3"
@@ -108,12 +113,12 @@ export default {
 					<div class="d-flex align-items-start">
 						<Checkbox inputId="ingredient1" name="pizza" required v-model="isAgreed" :binary="true" />
 						<small for="ingredient1" class="ms-2"> I agree to the
-							<a class="text-pe-green" href="/terms/service">security agreement</a>, 
+							<a class="text-pe-green" href="/terms/service">security agreement</a>,
 							<a class="text-pe-green" href="/terms/policy">terms and conditions</a>.
 						</small>
 					</div>
 				</div>
-				<push-button text="order now" type="submit" />
+				<push-button text="order now" type="submit" class="mt-4" :disabled="!this.validateForm(this.order, this.required) || !isAgreed" />
 			</form>
 		</div>
 	</div>

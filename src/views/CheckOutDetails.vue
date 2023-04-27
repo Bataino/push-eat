@@ -6,22 +6,26 @@ import { createOrder } from "@/services/order"
 import Widget from "@/functions/widget"
 import { storeUser } from "@/functions/storage"
 import CouponCode from '@/components/CouponCode.vue'
+import functionMixin from "@/mixin/function"
 
 export default {
 	name: "CheckOut",
 	props: ["value"],
+	mixins:[functionMixin],
 	components: {
 		Checkbox,
 		Card,
 		Dropdown,
-CouponCode
+		CouponCode
 	},
 	data() {
 		return {
 			isAgreed: false,
 			order: {
-				type:"meal"
-			}
+				type: "meal"
+			},
+			required: ["first_name", "last_name", "email", "location", "phone_number", "full_address"]
+
 		}
 	},
 	computed: {
@@ -66,7 +70,7 @@ CouponCode
 		}
 	},
 	created() {
-		if (localStorage.getItem("user")){
+		if (localStorage.getItem("user")) {
 			const user = JSON.parse(localStorage.getItem("user")) ?? {}
 			this.order = { ...this.order, ...user }
 		}
@@ -93,11 +97,11 @@ CouponCode
 					</div>
 					<div class="">
 						<input type="text" v-model="order.first_name" id="first_name" required
-							class="p-3 border rounded-10 form-control"  placeholder="First Name">
+							class="p-3 border rounded-10 form-control" placeholder="First Name">
 					</div>
 					<div class="">
 						<input type="text" v-model="order.last_name" id="last_name" required
-							class="p-3 border  rounded-10 form-control"  placeholder="Last Name">
+							class="p-3 border  rounded-10 form-control" placeholder="Last Name">
 					</div>
 					<div class="">
 						<input type="tel" maxlength="11" minlength="11" inputmode="Numeric" v-model="order.phone_number"
@@ -117,7 +121,7 @@ CouponCode
 					<div class="d-flex my-2 align-items-start field-checkbox">
 						<Checkbox inputId="ingredient1" v-model="isAgreed" required :binary="true" name="pizza" />
 						<span for="ingredient1" class="ms-2 gray text-md-white"> I agree to the
-							<a class="text-pe-green" href="/terms/service">security agreement</a>, 
+							<a class="text-pe-green" href="/terms/service">security agreement</a>,
 							<a class="text-pe-green" href="/terms/policy">terms and conditions</a>.
 						</span>
 					</div>
@@ -127,14 +131,16 @@ CouponCode
 		</Card>
 		<div class="py-md-3 text-center px-4 px-md-0">
 			<button class="btn btn-pe-green d-none d-md-block w-100 rounded-10 p-3 my-1 nexa"
-				:disabled="!Object.entries(this.$store.state.cart)[0] || isNotCompleted" type="submit">
+				:disabled="!this.validateForm(this.order, this.required) || !Object.keys(this.$store.state.cart)[0] || !isAgreed"
+				type="submit">
 				<span class="fs-6 nexa">
 					Order now
 				</span>
 			</button>
 
 			<button class="btn btn-pe-green d-md-none w-100 rounded-10 p-3 my-1 nexa"
-				:disabled="!Object.entries(this.$store.state.cart)[0] && isNotComplete" type="submit">
+				:disabled="!this.validateForm(this.order, this.required) || !Object.keys(this.$store.state.cart)[0] || !isAgreed"
+				type="submit">
 				<div class="fs-6 nexa">
 					Order now
 				</div>
@@ -166,9 +172,11 @@ dropdown {
 	// border-color: gray !important;
 	// margin-top: px;
 	margin-bottom: 10px;
-	@media(min-width:768px){
-		color:white;
+
+	@media(min-width:768px) {
+		color: white;
 	}
+
 	font-size: 12px;
 	background-color:transparent;
 }
@@ -189,10 +197,12 @@ span {
 p-checkbox-icon {
 	background-color: transparent !important;
 }
+
 .text-md-white {
-	@media(min-width:768px){
-		color:white !important;
+	@media(min-width:768px) {
+		color: white !important;
 	}
 }
+
 .text-sm {}
 </style> 

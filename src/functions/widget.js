@@ -14,7 +14,7 @@ export default class Widget {
         })
         setTimeout(function () {
             load.hide()
-        }, 30000)
+        }, 300000)
     }
     static dismiss = () => {
         load.hide()

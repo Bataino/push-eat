@@ -6,7 +6,9 @@ if (process.env.NODE_ENV === "production") {
 }
 export const createOrder = (formdata) => {
     formdata.full_address += ", " + formdata.location
+    formdata.coupon ? formdata.coupon = formdata.coupon.toUpperCase() : ''
     delete formdata.location
+    
     return http.post('order', {
         ...formdata,
         no_notify
