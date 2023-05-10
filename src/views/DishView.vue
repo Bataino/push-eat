@@ -2,7 +2,7 @@
 import Card from "primevue/card"
 import PushButton from '@/components/PushButton.vue'
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import SwiperCore, { Pagination, Autoplay, Navigation } from "swiper";
+import SwiperCore, { Autoplay, Navigation } from "swiper";
 import FoodCard from '@/components/FoodCard.vue';
 import InputNumber from "primevue/inputnumber"
 import { getProducts } from "@/firebase/product"
@@ -12,7 +12,7 @@ import FoodTray from "@/components/FoodTray.vue";
 import DishSkeleton from "@/components/skeleton/DishView.vue";
 import RequestButton from "@/components/RequestButton.vue";
 
-SwiperCore.use([Pagination, Autoplay, Navigation]);
+SwiperCore.use([Autoplay, Navigation]);
 
 // Import Swiper styles
 export default {
@@ -215,6 +215,9 @@ export default {
 </template>
 
 <style lang="less">
+.swiper-pagination {
+	display:none;
+}
 .choose {
 	@media(max-width:468px){
 		max-width:110px !important;

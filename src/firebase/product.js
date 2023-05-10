@@ -3,7 +3,8 @@ import store from "../store"
 import firebase from 'firebase/compat/app';
 
 export const getProducts = async () => {
-    let products = db.collection("products")
+    // let products = db.collection("products")
+   let products = db.collection("products_live")
     if (process.env.NODE_ENV === "production") {
         products = db.collection("products_live")
     }

@@ -5,6 +5,7 @@ if (process.env.NODE_ENV === "production") {
      no_notify = false
 }
 export const createOrder = (formdata) => {
+    formdata = {...formdata}
     formdata.full_address += ", " + formdata.location
     formdata.coupon ? formdata.coupon = formdata.coupon.toUpperCase() : ''
     delete formdata.location

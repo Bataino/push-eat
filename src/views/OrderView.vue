@@ -41,7 +41,7 @@ export default {
 	},
 	created() {
 		try {
-			this.order = { ...this.order, ...JSON.parse(localStorage.getItem("user")) }
+			this.order = { ...JSON.parse(localStorage.getItem("user")) , ...this.order }
 		}
 		catch (e) {
 

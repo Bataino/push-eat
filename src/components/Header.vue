@@ -118,12 +118,12 @@ export default {
 						</a>
 					</div>
 					<b class="text-pe-dark small museo-500">
-						<a href="mailto:hey@justpusheat.com" class="text-pe-dark">
+						<a href="mailto:support@justpusheat.com" class="text-pe-dark">
 							support@justpusheat.com<br>
 						</a>
 					</b>
 					<span class="text-gray small museo-500">
-						<b>Copyright 2023</b><br> JustPushEat
+						<b>Copyright @ 2023</b><br> PushEat
 					</span>
 				</div>
 			</OverlayPanel>

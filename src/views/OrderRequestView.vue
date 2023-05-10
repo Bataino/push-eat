@@ -11,7 +11,7 @@ import functionMixin from "@/mixin/function"
 
 export default {
 	components: { PushButton, Checkbox, Dropdown, CouponCode },
-	mixins:[functionMixin],
+	mixins: [functionMixin],
 	data() {
 		return {
 			order: {
@@ -19,8 +19,8 @@ export default {
 			},
 			isAgreed: false,
 			file: {},
-			imageUrl: null,
-			required: ["first_name", "last_name", "email", "location", "phone_number", "full_address"]
+			imageUrl: "",
+			required: ["first_name", "last_name", "email", "location", "phone_number", "full_address", "note"]
 		}
 	},
 	computed: {
@@ -31,10 +31,10 @@ export default {
 	methods: {
 		async createOrder() {
 			storeUser(this.order)
-			if (!this.imageUrl) {
-				this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 5000 });
-				return
-			}
+			// if (!this.imageUrl) {
+			// 	this.$toast.add({ severity: 'danger', summary: 'Error Message', detail: 'Unknown error occured', life: 5000 });
+			// 	return
+			// }
 			// url =  this.imageUrl ?? url
 
 
@@ -53,18 +53,23 @@ export default {
 		uploadImageAndCreateOrder(image) {
 			Widget.openLoading()
 			const _this = this
-			const upl = uploadImage(this.file)
-			upl.on(`success`,
-				img => {
-					// console.log(img)
-				},
-				error => { console.error(error.message) },
-				() => {
-					upl.snapshot.ref.getDownloadURL().then((url) => {
-						_this.imageUrl = url
-						this.createOrder(url)
-					});
-				})
+			if (this.file.name) {
+				const upl = uploadImage(this.file)
+				upl.on(`success`,
+					img => {
+						// console.log(img)
+					},
+					error => { console.error(error.message) },
+					() => {
+						upl.snapshot.ref.getDownloadURL().then((url) => {
+							_this.imageUrl = url
+							this.createOrder(url)
+						});
+					})
+			}
+			else {
+				this.createOrder()
+			}
 		},
 		async updateFile() {
 			const image = this.$refs.image.files[0]
@@ -132,8 +137,8 @@ export default {
 						class="form-control border rounded-10 p-3 my-3" placeholder="Phone Number" />
 
 					<Dropdown :required="true" v-model="order.location" :options="['Abeokuta', 'Lagos', 'Ibadan']"
-						placeholder="Where are you ordering from" class="form-control text-start m-0 border rounded-10 nexa"
-						>
+						placeholder="Where are you ordering from"
+						class="form-control text-start m-0 border rounded-10 nexa">
 					</Dropdown>
 					<input required v-model="order.full_address" inputmode="numeric" minlength="11"
 						class="form-control border rounded-10 p-3 my-3" placeholder="Full Address" />
@@ -153,10 +158,10 @@ export default {
 						<div v-else>
 							<img :src="url" class="w-100 -100" style="max-height:200px" />
 						</div>
-						<input type="file" ref="image" required @change="updateFile" id="image" class="" />
+						<input type="file" ref="image" @change="updateFile" id="image" class="" />
 					</div>
 				</div>
-				<push-button text="order now" type="submit" :disabled="!this.validateForm(this.order, this.required) || !file.name" />
+				<push-button text="order now" type="submit" :disabled="!this.validateForm(this.order, this.required)" />
 			</form>
 		</div>
 	</div>
