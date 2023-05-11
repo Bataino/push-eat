@@ -33,27 +33,32 @@ export default {
 
 <template>
 	<div class="w-100">
-		<swiper :autoplay="{
-			delay: 7000,
-		}" 
-		:slidesPerView="1" :grabCursor="true" :navigation="false" :pagination="true" :space-between="0" @swiper="onSwiper"
-			@_slideChange="onSlideChange" class="">
-			<swiper-slide class="">
-				<chef-view></chef-view>
-			</swiper-slide>
-			<swiper-slide>
-				<menu-view></menu-view>
-			</swiper-slide>
-			<swiper-slide>
-				<request-view></request-view>
-			</swiper-slide>
-		</swiper>
+		<div class="w-100 h-100">
+			<swiper style="min-height:85vh" :autoplay="{
+				delay: 7000,
+			}" :slidesPerView="1" :grabCursor="true" :navigation="false" :pagination="true" :space-between="0" @swiper="onSwiper"
+				@_slideChange="onSlideChange" class="">
+				<swiper-slide class="">
+					<chef-view></chef-view>
+				</swiper-slide>
+				<swiper-slide>
+					<menu-view></menu-view>
+				</swiper-slide>
+				<swiper-slide>
+					<request-view></request-view>
+				</swiper-slide>
+			</swiper>
+		</div>
+		<div class="whatsapp position-fixed fixed-bottom border-green border-circle p-2">
+			<a href="https://wa.link/gvf6o3">
+				<!-- <img class="border-circle float-end m-4 mb-5" width="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" > -->
+				<img class="border-circle float-end m-4 mb-5" width="80"
+					src="images/372108180_WHATSAPP_ICON/gif/372108180_WHATSAPP_ICON_400.gif">
+			</a>
+		</div>
 	</div>
 </template>
 
 <style>
-swiper-slide {
-
-}
-
+swiper-slide {}
 </style>
