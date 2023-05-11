@@ -53,7 +53,7 @@ export default {
 			<a href="https://wa.link/gvf6o3">
 				<!-- <img class="border-circle float-end m-4 mb-5" width="60" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/512px-WhatsApp.svg.png" > -->
 				<img class="border-circle float-end m-4 mb-5" width="80"
-					src="images/372108180_WHATSAPP_ICON/gif/372108180_WHATSAPP_ICON_400.gif">
+					src="/images/372108180_WHATSAPP_ICON/gif/372108180_WHATSAPP_ICON_400.gif">
 			</a>
 		</div>
 	</div>
